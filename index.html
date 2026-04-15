@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Real Estate Agents | Ato Sam</title>
+  <meta name="description" content="Automate your lead follow-up and outreach in 48 hours. Book a free strategy call with Ato Sam, AI automation consultant.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:opsz,ital,wght@9..144,1,300;9..144,1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================
+       BRAND TOKENS
+    =========================== */
+    :root {
+      --void-black: #0A0A0A;
+      --ember-red:  #C8391A;
+      --raw-paper:  #F5F2ED;
+      --chrome:     #C4C0B8;
+      --ash:        #6B6660;
+      --void-ui:    #111111;
+      --font-display:  'Bebas Neue', sans-serif;
+      --font-editorial:'Fraunces', serif;
+      --font-body:     'DM Mono', monospace;
+    }
+
+    /* ===========================
+       RESET
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--void-black);
+      color: var(--raw-paper);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===========================
+       SCROLL PROGRESS BAR
+    =========================== */
+    #progress-bar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--ember-red);
+      z-index: 1000;
+      transition: width 0.08s linear;
+      pointer-events: none;
+    }
+
+    /* ===========================
+       NAV
+    =========================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      z-index: 999;
+      background: transparent;
+      transition: background 0.3s ease-out, border-color 0.3s ease-out;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: var(--void-black);
+      border-bottom-color: rgba(196, 192, 184, 0.1);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--raw-paper);
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--ash); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--chrome);
+      text-decoration: none;
+      transition: color 0.25s ease-out;
+    }
+
+    .nav-links a:hover { color: var(--raw-paper); }
+
+    .nav-cta {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ember-red);
+      text-decoration: none;
+      border: 1px solid var(--ember-red);
+      padding: 8px 18px;
+      transition: background 0.25s ease-out, color 0.25s ease-out;
+    }
+
+    .nav-cta:hover {
+      background: var(--ember-red);
+      color: var(--raw-paper);
+    }
+
+    /* ===========================
+       COMMON SECTION STYLES
+    =========================== */
+    .section-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 100px 48px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ember-red);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+    }
+
+    h2.display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+
+    h2.editorial {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    h3.display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===========================
+       REVEAL ON SCROLL
+    =========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger utility */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ===========================
+       BUTTONS
+    =========================== */
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--raw-paper);
+      background: var(--ember-red);
+      padding: 14px 30px;
+      text-decoration: none;
+      transition: box-shadow 0.25s ease-out, transform 0.25s ease-out;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 24px rgba(200, 57, 26, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* ===========================
+       HERO SECTION
+    =========================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--void-black);
+      animation: heroGlow 9s ease-out infinite alternate;
+    }
+
+    @keyframes heroGlow {
+      0%   { background: radial-gradient(ellipse at 72% 52%, rgba(200,57,26,0.05) 0%, transparent 58%), var(--void-black); }
+      100% { background: radial-gradient(ellipse at 68% 46%, rgba(200,57,26,0.09) 0%, transparent 52%), var(--void-black); }
+    }
+
+    .hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 140px 48px 100px;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-content { max-width: 820px; }
+
+    .hero-content h1 {
+      font-size: clamp(52px, 7.5vw, 92px);
+      color: var(--raw-paper);
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: fadeUp 0.6s ease-out 0.25s forwards;
+    }
+
+    .hero-content h2.editorial {
+      font-size: clamp(17px, 2vw, 22px);
+      color: var(--chrome);
+      max-width: 640px;
+      margin-bottom: 44px;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.6s ease-out 0.55s forwards;
+    }
+
+    .hero-cta-group {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease-out 0.85s forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-micro {
+      display: block;
+      font-size: 11px;
+      color: var(--ash);
+      margin-top: 16px;
+      letter-spacing: 0.08em;
+    }
+
+    /* Terminal HUD overlay */
+    .hero-hud {
+      position: absolute;
+      bottom: 64px;
+      right: 48px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      line-height: 2;
+      letter-spacing: 0.12em;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.4s ease-out 1.3s forwards;
+    }
+
+    .hud-line {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .hud-label {
+      color: var(--ember-red);
+      opacity: 0.65;
+      min-width: 72px;
+      font-weight: 500;
+    }
+
+    .hud-value {
+      color: var(--chrome);
+      min-width: 96px;
+    }
+
+    /* ===========================
+       PROBLEM SECTION
+    =========================== */
+    #solutions { background: var(--void-black); }
+
+    .problem-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 100px 48px 60px;
+      border-top: 1px solid rgba(196, 192, 184, 0.1);
+    }
+
+    .problem-inner h2.display {
+      font-size: clamp(36px, 5vw, 62px);
+      color: var(--raw-paper);
+      margin-bottom: 64px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .stat-block {
+      border-left: 2px solid rgba(196, 192, 184, 0.18);
+      padding-left: 24px;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 5.5vw, 68px);
+      color: var(--ember-red);
+      line-height: 1;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--chrome);
+      letter-spacing: 0.06em;
+      line-height: 1.7;
+    }
+
+    .problem-quote {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: var(--chrome);
+      border-left: 2px solid var(--ember-red);
+      padding-left: 28px;
+      max-width: 680px;
+    }
+
+    /* ===========================
+       SOLUTION CARDS
+    =========================== */
+    .solution-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 60px 48px 100px;
+    }
+
+    .solution-inner h2.display {
+      font-size: clamp(36px, 5vw, 62px);
+      color: var(--raw-paper);
+      margin-bottom: 48px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--void-ui);
+      border-left: 3px solid var(--ember-red);
+      padding: 36px 28px;
+      transition: background 0.25s ease-out, transform 0.25s ease-out;
+      cursor: default;
+    }
+
+    .card:hover {
+      background: #161616;
+      transform: translateY(-5px);
+    }
+
+    .card-icon {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 22px;
+      color: var(--chrome);
+      flex-shrink: 0;
+    }
+
+    .card h3.display {
+      font-size: 20px;
+      color: var(--raw-paper);
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--chrome);
+      line-height: 1.75;
+    }
+
+    /* ===========================
+       HOW IT WORKS
+    =========================== */
+    #process {
+      border-top: 1px solid rgba(196, 192, 184, 0.1);
+      background: var(--void-black);
+    }
+
+    #process .section-inner h2.display {
+      font-size: clamp(36px, 5vw, 62px);
+      color: var(--raw-paper);
+      margin-bottom: 52px;
+    }
+
+    .process-steps {
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .process-step {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--chrome);
+      background: rgba(196, 192, 184, 0.04);
+      padding: 28px 28px;
+      border-left: 2px solid var(--ember-red);
+      line-height: 1.7;
+      letter-spacing: 0.06em;
+    }
+
+    .step-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .step-number {
+      color: var(--ember-red);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      color: var(--raw-paper);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .step-desc {
+      color: var(--chrome);
+      padding-left: 0;
+      font-size: 13px;
+    }
+
+    /* ===========================
+       TESTIMONIALS
+    =========================== */
+    #results {
+      border-top: 1px solid rgba(196, 192, 184, 0.1);
+      background: var(--void-black);
+    }
+
+    #results .section-inner h2.display {
+      font-size: clamp(36px, 5vw, 62px);
+      color: var(--raw-paper);
+      margin-bottom: 48px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--void-ui);
+      padding: 36px;
+      border-left: 3px solid rgba(196, 192, 184, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card.placeholder {
+      opacity: 0.45;
+    }
+
+    .testimonial-card.placeholder::after {
+      content: 'PENDING';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-12deg);
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--ash);
+      letter-spacing: 0.25em;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--chrome);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    .testimonials-note {
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--ash);
+      letter-spacing: 0.08em;
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    /* ===========================
+       ABOUT
+    =========================== */
+    #about {
+      border-top: 1px solid rgba(196, 192, 184, 0.1);
+      background: var(--void-black);
+    }
+
+    #about .section-inner h2.display {
+      font-size: clamp(36px, 5vw, 62px);
+      color: var(--raw-paper);
+      margin-bottom: 52px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      outline: 2px solid var(--ember-red);
+      outline-offset: 6px;
+    }
+
+    .about-body p {
+      font-size: 14px;
+      color: var(--chrome);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    /* ===========================
+       BOOKING
+    =========================== */
+    #book {
+      border-top: 1px solid rgba(196, 192, 184, 0.1);
+      background: var(--void-black);
+      text-align: center;
+    }
+
+    #book .section-inner h2.display {
+      font-size: clamp(32px, 4.5vw, 56px);
+      color: var(--raw-paper);
+      margin-bottom: 16px;
+    }
+
+    #book .section-inner h2.editorial {
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: var(--chrome);
+      max-width: 520px;
+      margin: 0 auto 56px;
+    }
+
+    .calendly-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(196, 192, 184, 0.08);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--ash);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--ash);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.25s ease-out;
+    }
+
+    .footer-link:hover { color: var(--chrome); }
+
+    /* ===========================
+       MOBILE — 768px BREAKPOINT
+    =========================== */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+
+      .nav-links { display: none; }
+
+      .hero-inner,
+      .section-inner,
+      .problem-inner,
+      .solution-inner { padding-left: 20px; padding-right: 20px; }
+
+      .hero-inner { padding-top: 120px; padding-bottom: 80px; }
+
+      .hero-hud { display: none; }
+
+      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      .cards-grid { grid-template-columns: 1fr; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-photo {
+        max-width: 260px;
+      }
+
+      footer {
+        padding: 24px 20px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll progress bar -->
+  <div id="progress-bar"></div>
+
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">ATO <span>SAM</span></a>
+    <ul class="nav-links">
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#book" class="nav-cta">Book a Free Call</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="section-label" style="opacity:0; animation: fadeUp 0.5s ease-out 0.05s forwards;">AI Automation Consultant</span>
+        <h1>Real Estate Agents: Stop Losing Leads to Slow Follow-Up</h1>
+        <h2 class="editorial">I build AI automation systems that follow up with your leads automatically — within minutes, not hours. Built in 48 hours. No tech skills needed on your end.</h2>
+        <div class="hero-cta-group">
+          <a href="#book" class="btn-primary">Book Your Free 15-Min Strategy Call</a>
+          <span class="hero-micro">No obligation. No pitch. Just clarity on whether automation fits your business.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal HUD overlay — typewriter text injected by JS -->
+    <div class="hero-hud" id="hero-hud" aria-hidden="true">
+      <div class="hud-line">
+        <span class="hud-label">STATUS</span>
+        <span class="hud-value" id="hud-status"></span>
+      </div>
+      <div class="hud-line">
+        <span class="hud-label">LATENCY</span>
+        <span class="hud-value" id="hud-latency"></span>
+      </div>
+      <div class="hud-line">
+        <span class="hud-label">UPTIME</span>
+        <span class="hud-value" id="hud-uptime"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROBLEM + SOLUTIONS — shared anchor #solutions
+  ============================================================ -->
+  <div id="solutions">
+
+    <!-- Problem stats -->
+    <div class="problem-inner">
+      <span class="section-label reveal">The Problem</span>
+      <h2 class="display reveal">The Real Cost of Manual Follow-Up</h2>
+
+      <div class="stats-grid">
+        <!-- Stat 1 -->
+        <div class="stat-block reveal reveal-delay-1">
+          <div class="stat-number" data-target="8" data-suffix="HRS/WK">0</div>
+          <div class="stat-label">Average time agents spend on<br>manual lead follow-up every week</div>
+        </div>
+        <!-- Stat 2 -->
+        <div class="stat-block reveal reveal-delay-2">
+          <div class="stat-number" data-target="78" data-suffix="%">0</div>
+          <div class="stat-label">Of leads go to the first agent<br>who responds — speed wins</div>
+        </div>
+        <!-- Stat 3 — static, no counter -->
+        <div class="stat-block reveal reveal-delay-3">
+          <div class="stat-number" data-static="true">$0</div>
+          <div class="stat-label">Earned from leads you never<br>followed up with fast enough</div>
+        </div>
+      </div>
+
+      <p class="problem-quote reveal">Every hour you delay is a commission someone else collects.</p>
+    </div>
+
+    <!-- Solution cards -->
+    <div class="solution-inner">
+      <span class="section-label reveal">What I Build</span>
+      <h2 class="display reveal">What I Build for You</h2>
+
+      <div class="cards-grid">
+
+        <!-- TODO: link to demo once built — Lead Follow-Up Automation -->
+        <div class="card reveal reveal-delay-1">
+          <svg class="card-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="6" width="24" height="17" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2 10L14 18L26 10" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          <h3 class="display">Lead Follow-Up Automation</h3>
+          <p>The moment a lead comes in, your system responds. Personalized messages sent automatically within 2 minutes — while you focus on closing.</p>
+        </div>
+
+        <!-- TODO: link to demo once built — Outreach Sequences -->
+        <div class="card reveal reveal-delay-2">
+          <svg class="card-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="5"  cy="14" r="3" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="23" cy="6"  r="3" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="23" cy="22" r="3" stroke="currentColor" stroke-width="1.4"/>
+            <line x1="8"  y1="12.5" x2="20" y2="7.5"  stroke="currentColor" stroke-width="1.4"/>
+            <line x1="8"  y1="15.5" x2="20" y2="20.5" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          <h3 class="display">Outreach Sequences</h3>
+          <p>Multi-step, automated outreach that nurtures cold leads over days or weeks without you lifting a finger.</p>
+        </div>
+
+        <!-- TODO: link to demo once built — Onboarding Workflows -->
+        <div class="card reveal reveal-delay-3">
+          <svg class="card-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="2" width="16" height="24" stroke="currentColor" stroke-width="1.4"/>
+            <line x1="10" y1="9"  x2="18" y2="9"  stroke="currentColor" stroke-width="1.4"/>
+            <line x1="10" y1="14" x2="18" y2="14" stroke="currentColor" stroke-width="1.4"/>
+            <line x1="10" y1="19" x2="15" y2="19" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          <h3 class="display">Onboarding Workflows</h3>
+          <p>New client? Your onboarding process runs itself. Contracts, welcome messages, data collection — all automated.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- #solutions -->
+
+  <!-- ============================================================
+       HOW IT WORKS
+  ============================================================ -->
+  <section id="process">
+    <div class="section-inner">
+      <span class="section-label reveal">The Process</span>
+      <h2 class="display reveal">Simple Process. Real Results.</h2>
+
+      <div class="process-steps">
+
+        <div class="process-step reveal">
+          <div class="step-head">
+            <span class="step-number">01 //</span>
+            <span class="step-title">Free Strategy Call — 15 min</span>
+          </div>
+          <div class="step-desc">We identify the exact task eating your time and design the right system for it.</div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-head">
+            <span class="step-number">02 //</span>
+            <span class="step-title">I Build It — 48 hours</span>
+          </div>
+          <div class="step-desc">I build and test your automation system. You review it before it goes live.</div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-head">
+            <span class="step-number">03 //</span>
+            <span class="step-title">It Runs. You Close.</span>
+          </div>
+          <div class="step-desc">Your system handles the repetitive work. You focus on conversations that make money.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section id="results">
+    <div class="section-inner">
+      <span class="section-label reveal">Social Proof</span>
+      <h2 class="display reveal">What Clients Say</h2>
+
+      <!-- TESTIMONIAL SLOT 1: Replace with real testimonial + client name + city -->
+      <!-- TESTIMONIAL SLOT 2: Replace with real testimonial + client name + city -->
+      <!-- TESTIMONIAL SLOT 3: Replace with real testimonial + client name + city -->
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card placeholder reveal">
+          <p class="testimonial-text">"Ato built a follow-up system that replaced 6 hours of my week in under 48 hours. I closed 2 deals I would have missed."</p>
+          <div class="testimonial-author">— [Your First Client] &middot; Real Estate Agent &middot; [City]</div>
+        </div>
+
+        <div class="testimonial-card placeholder reveal reveal-delay-1">
+          <p class="testimonial-text">"The outreach sequence runs while I sleep. I wake up to replies from leads I would have lost entirely."</p>
+          <div class="testimonial-author">— [Client Name] &middot; Real Estate Agent &middot; [City]</div>
+        </div>
+
+      </div>
+
+      <p class="testimonials-note reveal">Placeholder slots — replace with real client testimonials once collected.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="display reveal">Who Builds This</h2>
+
+      <div class="about-grid">
+
+        <div class="reveal">
+          <img src="photos/ato-sam-pfp-2026.jpeg"
+               alt="Ato Sam — AI Automation Consultant"
+               class="about-photo">
+        </div>
+
+        <div class="about-body reveal reveal-delay-1">
+          <p>I'm Ato Sam. I build AI automation systems for real estate agents who are tired of losing leads to slow response times and manual processes.</p>
+          <p>I don't build complicated AI that breaks. I build reliable, deterministic systems that run predictably — every time. If it's not working, I fix it.</p>
+          <p>Currently taking on 2 new clients. If your process is manual and repetitive, there's a good chance I can automate it.</p>
+          <a href="#book" class="btn-primary" style="margin-top: 12px;">Book a Free 15-Min Call</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BOOKING
+  ============================================================ -->
+  <section id="book">
+    <div class="section-inner">
+      <h2 class="display reveal">Book Your Free 15-Min Strategy Call</h2>
+      <h2 class="editorial reveal">No pitch. No pressure. In 15 minutes I'll tell you exactly what can be automated in your business and what it would look like.</h2>
+
+      <div class="calendly-container reveal">
+
+        <!-- Inline Calendly embed -->
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/theatosam/strategy-call?background_color=0a0a0a&text_color=f5f2ed&primary_color=c8391a"
+             style="min-width:320px;height:630px;">
+        </div>
+        <script type="text/javascript"
+                src="https://assets.calendly.com/assets/external/widget.js" async>
+        </script>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <span class="footer-copy">&copy; 2026 Ato Sam</span>
+    <a href="https://www.linkedin.com/in/theatosam/" class="footer-link" target="_blank" rel="noopener noreferrer">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ---- SCROLL PROGRESS BAR ----
+    const progressBar = document.getElementById('progress-bar');
+
+    function updateProgress() {
+      const scrollTop  = window.scrollY;
+      const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+      const pct        = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }
+
+    // ---- NAV BACKGROUND ----
+    const nav = document.getElementById('main-nav');
+
+    function updateNav() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }
+
+    window.addEventListener('scroll', () => {
+      updateProgress();
+      updateNav();
+    }, { passive: true });
+
+    // ---- INTERSECTION OBSERVER — SECTION REVEALS ----
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // ---- ANIMATED STAT COUNTERS ----
+    const statEls = document.querySelectorAll('.stat-number[data-target]');
+
+    function runCounter(el) {
+      const target   = parseInt(el.dataset.target, 10);
+      const suffix   = el.dataset.suffix || '';
+      const duration = 1100;
+      const start    = performance.now();
+
+      function tick(now) {
+        const elapsed  = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease-out cubic
+        const eased    = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          runCounter(entry.target);
+          counterObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    statEls.forEach(el => counterObs.observe(el));
+
+    // ---- TERMINAL TYPEWRITER — HERO HUD ----
+    const hudLines = [
+      { id: 'hud-status',  text: 'SYSTEMS ONLINE',  delay: 1450, speed: 55 },
+      { id: 'hud-latency', text: '< 2MIN RESPONSE', delay: 1900, speed: 50 },
+      { id: 'hud-uptime',  text: '99.9% UPTIME',    delay: 2350, speed: 50 },
+    ];
+
+    function typeWriter(el, text, speed) {
+      let i = 0;
+      el.textContent = '';
+      (function type() {
+        if (i < text.length) {
+          el.textContent += text[i++];
+          setTimeout(type, speed);
+        }
+      })();
+    }
+
+    hudLines.forEach(({ id, text, delay, speed }) => {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) typeWriter(el, text, speed);
+      }, delay);
+    });
+  </script>
+
+</body>
+</html>
