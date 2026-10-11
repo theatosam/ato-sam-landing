@@ -111,10 +111,12 @@ p{margin:0;max-width:65ch}
 @media(min-width:900px){.portrait{justify-self:end;margin-bottom:-24px}}
 .portrait .panel{background:var(--green-deep);padding:14px;border-radius:20px;transform:rotate(1.5deg)}
 .portrait img{border-radius:10px;width:100%;aspect-ratio:1/1;object-fit:cover}
-.contact-grid{display:grid;gap:48px;align-items:center}
-@media(min-width:900px){.contact-grid{grid-template-columns:3fr 2fr;gap:80px}}
-.contact .portrait{margin:0;max-width:340px}
-@media(min-width:900px){.contact .portrait{justify-self:end;margin-bottom:0}}
+.about-grid{display:grid;gap:40px;align-items:start}
+@media(min-width:900px){.about-grid{grid-template-columns:2fr 3fr;gap:80px}}
+#about .portrait{margin:0;max-width:380px}
+.about-lede{margin-top:20px;font-size:19px;max-width:56ch}
+#about .tl{margin-top:36px}
+#about h2{font-size:clamp(1.9rem,3.6vw,2.75rem)}
 
 /* hero entrance, CSS only, one time */
 @media(prefers-reduced-motion:no-preference){
@@ -199,7 +201,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
     </a>
     <nav aria-label="Primary">
       <a href="#work">Work</a>
-      <a href="#background">Background</a>
+      <a href="#about">About</a>
       <a href="#writing">Writing</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -211,11 +213,11 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
     <div class="hero hero-solo">
       <div>
         <h1 class="rise" style="--i:1"><span>Scattered documents in.</span> <span>One searchable record out.</span></h1>
-        <p class="lede rise" style="--i:2">I'm Ato Sam. I turn the reports, proposals and files a team has piled up into one searchable record where every answer traces back to its source. I write about building this way as the Autonomy Architect.</p>
+        <p class="lede rise" style="--i:2">Reports, proposals and files a team has piled up become one searchable record, where every answer traces back to its source. One pilot at a time.</p>
         <div class="actions rise" style="--i:3">
-          <a class="btn btn-gold" href="https://calendly.com/theatosam/strategy-call">Book a 20-minute call</a>
+          <a class="btn btn-gold" href="https://calendly.com/theatosam/strategy-call" target="_blank" rel="noopener noreferrer">Book a 20-minute call</a>
           <a class="btn btn-line" href="mailto:atosam23@gmail.com">Email me</a>
-          <a class="textlink" href="https://theatosam.substack.com">Read the essays</a>
+          <a class="textlink" href="https://theatosam.substack.com" target="_blank" rel="noopener noreferrer">Read the essays</a>
         </div>
       </div>
     </div>
@@ -259,7 +261,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
           </div>
           <div class="meta">
             <p class="tags">Python extraction, Next.js static site, structured data, SEO and AI-search</p>
-            <div class="links"><a href="https://ncce-aan.vercel.app/">ncce-aan.vercel.app</a></div>
+            <div class="links"><a href="https://ncce-aan.vercel.app/" target="_blank" rel="noopener noreferrer">ncce-aan.vercel.app</a></div>
           </div>
         </li>
         <li class="row">
@@ -270,7 +272,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
           </div>
           <div class="meta">
             <p class="tags">Next.js 16, static export, JSON-LD, llms.txt</p>
-            <div class="links"><a href="https://www.feedingforchrist.org">feedingforchrist.org</a></div>
+            <div class="links"><a href="https://www.feedingforchrist.org" target="_blank" rel="noopener noreferrer">feedingforchrist.org</a></div>
           </div>
         </li>
         <li class="row">
@@ -292,8 +294,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
           <div class="meta">
             <p class="tags">Python, Claude API, Flask</p>
             <div class="links">
-              <a href="https://lead-research-agent-qytk.onrender.com/">Live demo</a>
-              <a href="https://github.com/theatosam/lead-research-agent">Source</a>
+              <a href="https://lead-research-agent-qytk.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo</a>
+              <a href="https://github.com/theatosam/lead-research-agent" target="_blank" rel="noopener noreferrer">Source</a>
             </div>
           </div>
         </li>
@@ -326,26 +328,31 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
     </div>
   </section>
 
-  <section id="background" aria-labelledby="cv-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 id="cv-h">Background</h2>
-        <p>Training and credentials behind the work.</p>
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap about-grid">
+      <figure class="portrait">
+        <div class="panel">
+          <img src="photos/ato-sam-pfp-2026.jpeg" width="1024" height="1024" alt="Portrait of Ato Sam" loading="lazy">
+        </div>
+      </figure>
+      <div>
+        <h2 id="about-h">Hi, I'm Ato Sam.</h2>
+        <p class="about-lede">I'm a freelance AI systems builder. I take the documents a team has scattered across folders and build the system that makes them searchable, so every answer shows its source. I work one pilot at a time, and I write weekly as the Autonomy Architect about autonomy, strength, learning and money.</p>
+        <dl class="tl">
+          <div>
+            <dt>Education</dt>
+            <dd><strong>BA Economics and Linguistics</strong>, University of Ghana, Legon, 2019.</dd>
+          </div>
+          <div>
+            <dt>Certifications</dt>
+            <dd>AWS Certified Solutions Architect Associate. Google Analytics. HubSpot SEO. Google Fundamentals of Digital Marketing.</dd>
+          </div>
+          <div>
+            <dt>Languages</dt>
+            <dd>English (EFSet 95/100). French, learning in public.</dd>
+          </div>
+        </dl>
       </div>
-      <dl class="tl">
-        <div>
-          <dt>Education</dt>
-          <dd><strong>BA Economics and Linguistics</strong>, University of Ghana, Legon, 2019.</dd>
-        </div>
-        <div>
-          <dt>Certifications</dt>
-          <dd>AWS Certified Solutions Architect Associate. Google Analytics. HubSpot SEO. Google Fundamentals of Digital Marketing.</dd>
-        </div>
-        <div>
-          <dt>Languages</dt>
-          <dd>English (EFSet 95/100). French, learning in public.</dd>
-        </div>
-      </dl>
     </div>
   </section>
 
@@ -355,27 +362,18 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
         <h2>Autonomy Architect</h2>
         <p>Essays on autonomy, strength, learning, money and building a life deliberately. One a week.</p>
       </div>
-      <div><a class="btn btn-gold" href="https://theatosam.substack.com">Read on Substack</a></div>
+      <div><a class="btn btn-gold" href="https://theatosam.substack.com" target="_blank" rel="noopener noreferrer">Read on Substack</a></div>
     </div>
   </div>
 
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
-      <div class="contact-grid">
-      <div>
       <h2 id="contact-h">A pile of documents nobody can search?</h2>
       <p>I take one pilot at a time: your past reports, proposals and files become a private, searchable record that shows its sources. I also take remote contract work in research, content and AI operations.</p>
       <div class="actions">
-        <a class="btn btn-gold" href="https://calendly.com/theatosam/strategy-call">Book a 20-minute call</a>
+        <a class="btn btn-gold" href="https://calendly.com/theatosam/strategy-call" target="_blank" rel="noopener noreferrer">Book a 20-minute call</a>
         <a class="btn btn-line" href="mailto:atosam23@gmail.com">Email me</a>
-        <a class="textlink" href="https://www.linkedin.com/in/theatosam/">LinkedIn</a>
-      </div>
-      </div>
-      <figure class="portrait">
-        <div class="panel">
-          <img src="photos/ato-sam-pfp-2026.jpeg" width="1024" height="1024" alt="Portrait of Ato Sam" loading="lazy">
-        </div>
-      </figure>
+        <a class="textlink" href="https://www.linkedin.com/in/theatosam/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -385,9 +383,9 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
   <div class="wrap">
     <span>Ato Sam. 2026.</span>
     <span>
-      <a href="https://github.com/theatosam">GitHub</a>
-      <a href="https://theatosam.substack.com">Substack</a>
-      <a href="https://www.linkedin.com/in/theatosam/">LinkedIn</a>
+      <a href="https://github.com/theatosam" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://theatosam.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
+      <a href="https://www.linkedin.com/in/theatosam/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </span>
   </div>
 </footer>
