@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ato Sam | AI systems for scattered documents</title>
-<meta name="description" content="Ato Sam is a freelance AI systems builder in Ghana. Scattered documents in, one searchable record out. Selected work, method and contact.">
+<meta name="description" content="Ato Sam is a freelance AI systems builder. Scattered documents in, one searchable record out. Selected work, method and contact.">
 <link rel="canonical" href="https://ato-sam-landing.vercel.app/">
 <meta name="theme-color" content="#0f2a1d">
 <meta property="og:type" content="profile">
@@ -101,14 +101,20 @@ p{margin:0;max-width:65ch}
 /* hero */
 .hero{display:grid;gap:40px;padding:32px 0 72px;align-items:end}
 @media(min-width:900px){.hero{grid-template-columns:7fr 5fr;gap:64px;padding:56px 0 96px}}
-.hero h1{font-size:clamp(2.5rem,6.4vw,4.75rem);max-width:15ch}
+.hero h1{font-size:clamp(2.25rem,6.2vw,5rem);max-width:none}
+.hero h1 span{display:block}
+.hero-solo{grid-template-columns:1fr!important;padding:56px 0 96px}
+.hero-solo .lede{max-width:56ch}
 .hero .lede{margin-top:28px;font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted)}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:36px;align-items:center}
 .portrait{position:relative;justify-self:start;width:100%;max-width:420px}
 @media(min-width:900px){.portrait{justify-self:end;margin-bottom:-24px}}
 .portrait .panel{background:var(--green-deep);padding:14px;border-radius:20px;transform:rotate(1.5deg)}
 .portrait img{border-radius:10px;width:100%;aspect-ratio:1/1;object-fit:cover}
-.portrait figcaption{margin-top:20px;color:var(--muted)}
+.contact-grid{display:grid;gap:48px;align-items:center}
+@media(min-width:900px){.contact-grid{grid-template-columns:3fr 2fr;gap:80px}}
+.contact .portrait{margin:0;max-width:340px}
+@media(min-width:900px){.contact .portrait{justify-self:end;margin-bottom:0}}
 
 /* hero entrance, CSS only, one time */
 @media(prefers-reduced-motion:no-preference){
@@ -119,18 +125,14 @@ p{margin:0;max-width:65ch}
 }
 
 /* record strip */
-.record{border-top:1.5px solid var(--ink);border-bottom:1px solid var(--rule);background:var(--surface)}
-.record ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr}
-@media(min-width:480px){.record ul{grid-template-columns:1fr 1fr}}
-@media(min-width:1000px){.record ul{grid-template-columns:1fr 1.5fr 1fr}}
-.record li{padding:28px 20px 28px 0;border-bottom:1px solid var(--rule)}
-@media(min-width:480px){.record li:nth-child(odd){padding-right:20px}.record li:nth-child(even){padding-left:20px;border-left:1px solid var(--rule)}}
-@media(min-width:1000px){.record li{border-bottom:0;padding:36px 24px}.record li:first-child{padding-left:0}.record li:not(:first-child){border-left:1px solid var(--rule)}}
-.num{position:relative;display:inline-block;font-family:var(--display);font-weight:800;font-size:clamp(2.25rem,4.4vw,3.25rem);letter-spacing:-.04em;line-height:1;z-index:0;font-variant-numeric:tabular-nums}
-.num.long{font-size:clamp(1.5rem,2.5vw,2rem);white-space:nowrap;letter-spacing:-.03em}
-.hl::before{content:"";position:absolute;left:-4px;right:-4px;bottom:4px;height:.38em;background:var(--gold);z-index:-1}
-.record p{margin-top:12px;font-size:15px;line-height:1.5;color:var(--muted)}
-.footnote{padding:14px 0 0;font-size:13px;color:var(--muted)}
+.record{background:var(--surface);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.record ul{list-style:none;margin:0;padding:48px 0;display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:800px){.record ul{grid-template-columns:repeat(3,1fr);gap:48px;padding:64px 0}}
+.record li{border-top:1.5px solid var(--ink);padding-top:16px}
+.lbl{display:block;font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--muted);margin-bottom:20px}
+.num{position:relative;display:inline-block;font-family:var(--display);font-weight:800;font-size:clamp(3.5rem,7vw,5rem);letter-spacing:-.04em;line-height:1;z-index:0;font-variant-numeric:tabular-nums}
+.hl::before{content:"";position:absolute;left:-4px;right:-4px;bottom:6px;height:.3em;background:var(--gold);z-index:-1}
+.record p{margin-top:20px;font-size:16px;line-height:1.5;color:var(--muted);max-width:32ch}
 
 /* sections */
 section{padding:80px 0}
@@ -206,10 +208,9 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
 
 <main id="main">
   <div class="wrap" id="top">
-    <div class="hero">
+    <div class="hero hero-solo">
       <div>
-        <p class="kicker rise" style="--i:0">Freelance. Ghana. One pilot at a time.</p>
-        <h1 class="rise" style="--i:1">Scattered documents in. One searchable record out.</h1>
+        <h1 class="rise" style="--i:1"><span>Scattered documents in.</span> <span>One searchable record out.</span></h1>
         <p class="lede rise" style="--i:2">I'm Ato Sam. I turn the reports, proposals and files a team has piled up into one searchable record where every answer traces back to its source. I write about building this way as the Autonomy Architect.</p>
         <div class="actions rise" style="--i:3">
           <a class="btn btn-gold" href="https://calendly.com/theatosam/strategy-call">Book a 20-minute call</a>
@@ -217,12 +218,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
           <a class="textlink" href="https://theatosam.substack.com">Read the essays</a>
         </div>
       </div>
-      <figure class="portrait rise" style="--i:2;margin:0">
-        <div class="panel">
-          <img src="photos/ato-sam-pfp-2026.jpeg" width="1024" height="1024" alt="Portrait of Ato Sam" fetchpriority="high">
-        </div>
-        <figcaption class="mono">Ghana. Moving to Accra.</figcaption>
-      </figure>
     </div>
   </div>
 
@@ -231,19 +226,21 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
       <h2 id="record-h" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">The record in numbers</h2>
       <ul>
         <li>
+          <span class="lbl">Source data</span>
           <span class="num hl">14</span>
           <p>reports from six years of programme work, turned into one structured dataset.</p>
         </li>
         <li>
-          <span class="num long hl">97 / 100 / 100 / 100</span>
-          <p>Lighthouse mobile scores of the live Feeding for Christ site: performance, accessibility, best practices, SEO.</p>
+          <span class="lbl">Live site</span>
+          <span class="num hl">97</span>
+          <p>Lighthouse mobile performance on feedingforchrist.org. Accessibility, best practices and SEO all score 100.</p>
         </li>
         <li>
+          <span class="lbl">Own system</span>
           <span class="num hl">31</span>
-          <p>custom skills in the personal AI operating system I run my work from.</p>
+          <p>custom skills in the AI operating system I run my work from.</p>
         </li>
       </ul>
-      <p class="footnote">Numbers come from the source files and live audits.</p>
     </div>
   </div>
 
@@ -262,7 +259,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
           </div>
           <div class="meta">
             <p class="tags">Python extraction, Next.js static site, structured data, SEO and AI-search</p>
-            <p class="note">Public site in progress.</p>
+            <div class="links"><a href="https://ncce-aan.vercel.app/">ncce-aan.vercel.app</a></div>
           </div>
         </li>
         <li class="row">
@@ -364,6 +361,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
 
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
+      <div class="contact-grid">
+      <div>
       <h2 id="contact-h">A pile of documents nobody can search?</h2>
       <p>I take one pilot at a time: your past reports, proposals and files become a private, searchable record that shows its sources. I also take remote contract work in research, content and AI operations.</p>
       <div class="actions">
@@ -371,13 +370,20 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
         <a class="btn btn-line" href="mailto:atosam23@gmail.com">Email me</a>
         <a class="textlink" href="https://www.linkedin.com/in/theatosam/">LinkedIn</a>
       </div>
+      </div>
+      <figure class="portrait">
+        <div class="panel">
+          <img src="photos/ato-sam-pfp-2026.jpeg" width="1024" height="1024" alt="Portrait of Ato Sam" loading="lazy">
+        </div>
+      </figure>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>Ato Sam. Ghana. 2026.</span>
+    <span>Ato Sam. 2026.</span>
     <span>
       <a href="https://github.com/theatosam">GitHub</a>
       <a href="https://theatosam.substack.com">Substack</a>
