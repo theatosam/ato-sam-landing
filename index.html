@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ato Sam | AI systems for scattered documents</title>
-<meta name="description" content="Ato Sam is a freelance AI systems builder. Scattered documents in, one searchable record out. Selected work, method and contact.">
+<title>Ato Sam | AI systems consultant</title>
+<meta name="description" content="Ato Sam is an AI systems consultant. Repeat work in, a system that runs it out. Selected work, method and how to start an engagement.">
 <link rel="canonical" href="https://ato-sam-landing.vercel.app/">
 <meta name="theme-color" content="#0f2a1d">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Ato Sam | AI systems for scattered documents">
-<meta property="og:description" content="Freelance AI systems builder. Scattered documents in, one searchable record out, with every number traced to its source.">
+<meta property="og:title" content="Ato Sam | AI systems consultant">
+<meta property="og:description" content="AI systems consultant. I design and run the systems behind a small team's recurring work: leads, content, follow-up and records.">
 <meta property="og:url" content="https://ato-sam-landing.vercel.app/">
 <meta property="og:image" content="https://ato-sam-landing.vercel.app/photos/ato-sam-pfp-2026.jpeg">
 <meta name="twitter:card" content="summary">
@@ -20,7 +20,7 @@
   "@type": "Person",
   "name": "Ato Sam",
   "alternateName": "Ato Kwansah Sam",
-  "jobTitle": "AI systems builder",
+  "jobTitle": "AI systems consultant",
   "url": "https://ato-sam-landing.vercel.app/",
   "image": "https://ato-sam-landing.vercel.app/photos/ato-sam-pfp-2026.jpeg",
   "sameAs": [
@@ -28,7 +28,7 @@
     "https://github.com/theatosam",
     "https://theatosam.substack.com"
   ],
-  "knowsAbout": ["AI automation", "Document processing", "Structured data", "Search optimisation", "Technical writing", "Python"]
+  "knowsAbout": ["AI systems consulting", "Workflow automation", "Lead generation systems", "Content operations", "Knowledge management", "Structured data", "Python"]
 }
 </script>
 <style>
@@ -157,6 +157,14 @@ section{padding:80px 0}
 .links a{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
 .note{font-size:14px;color:var(--muted)}
 
+/* what I build */
+.build{padding-top:96px}
+.build ol{list-style:none;margin:0;padding:0;counter-reset:m}
+.build li{counter-increment:m;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--rule);font-size:18px}
+.build li:first-child{border-top:1.5px solid var(--ink)}
+.build li::before{content:counter(m,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:6px}
+.build li b{font-weight:700}
+
 /* method */
 .method{background:var(--surface);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .method ol{list-style:none;margin:0;padding:0;counter-reset:m}
@@ -212,8 +220,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
   <div class="wrap" id="top">
     <div class="hero hero-solo">
       <div>
-        <h1 class="rise" style="--i:1"><span>Scattered documents in.</span> <span>One searchable record out.</span></h1>
-        <p class="lede rise" style="--i:2">Reports, proposals and files a team has piled up become one searchable record, where every answer traces back to its source. One pilot at a time.</p>
+        <h1 class="rise" style="--i:1"><span>Repeat work in.</span> <span>A system that runs it out.</span></h1>
+        <p class="lede rise" style="--i:2">I'm Ato Sam, an AI systems consultant. I find the repeat work eating a small team's week, build the system that runs it, and hand it over so you own it.</p>
         <div class="actions rise" style="--i:3">
           <a class="btn btn-gold" href="https://calendly.com/theatosam/strategy-call" target="_blank" rel="noopener noreferrer">Book a 20-minute call</a>
           <a class="btn btn-line" href="mailto:atosam23@gmail.com">Email me</a>
@@ -245,6 +253,21 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
       </ul>
     </div>
   </div>
+
+  <section class="build" id="build" aria-labelledby="build-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="build-h">What I build</h2>
+        <p>Systems that take a recurring piece of work off a team's plate, with a review step so you can trust the output.</p>
+      </div>
+      <ol>
+        <li><span><b>Lead and outreach systems.</b> Find prospects, score fit against your ideal client and draft outreach for you to approve.</span></li>
+        <li><span><b>Content engines.</b> One recording becomes a week of posts, with the editing and formatting handled for you.</span></li>
+        <li><span><b>Operating systems for founders.</b> A daily brief, a decision log and memory, so work picks up where it stopped.</span></li>
+        <li><span><b>Records systems.</b> Past reports and proposals become one searchable record where every answer shows its source.</span></li>
+      </ol>
+    </div>
+  </section>
 
   <section id="work" aria-labelledby="work-h">
     <div class="wrap">
@@ -337,7 +360,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
       </figure>
       <div>
         <h2 id="about-h">Hi, I'm Ato Sam.</h2>
-        <p class="about-lede">I'm a freelance AI systems builder. I take the documents a team has scattered across folders and build the system that makes them searchable, so every answer shows its source. I work one pilot at a time, and I write weekly as the Autonomy Architect about autonomy, strength, learning and money.</p>
+        <p class="about-lede">I'm an AI systems consultant. I find the repeat work eating a small team's week, build the system that runs it, and hand it over with the documentation to keep it running. I take one engagement at a time, and I write weekly as the Autonomy Architect about autonomy, strength, learning and money.</p>
       </div>
     </div>
   </section>
@@ -354,8 +377,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:16p
 
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
-      <h2 id="contact-h">A pile of documents nobody can search?</h2>
-      <p>I take one pilot at a time: your past reports, proposals and files become a private, searchable record that shows its sources. I also take remote contract work in research, content and AI operations.</p>
+      <h2 id="contact-h">Repeat work eating your team's week?</h2>
+      <p>I take one engagement at a time. It starts with a fixed-scope pilot: I diagnose the repeat work, build the system around it and hand it over, and you own everything.</p>
       <div class="actions">
         <a class="btn btn-gold" href="https://calendly.com/theatosam/strategy-call" target="_blank" rel="noopener noreferrer">Book a 20-minute call</a>
         <a class="btn btn-line" href="mailto:atosam23@gmail.com">Email me</a>
