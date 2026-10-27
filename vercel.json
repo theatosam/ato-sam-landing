@@ -14,6 +14,11 @@
       "permanent": true
     },
     {
+      "source": "/autonomous-mode.",
+      "destination": "/autonomous-mode",
+      "permanent": true
+    },
+    {
       "source": "/",
       "destination": "/autonomous-mode",
       "permanent": false
