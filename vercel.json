@@ -3,6 +3,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.theatosam.com"
+        }
+      ],
+      "destination": "https://theatosam.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
