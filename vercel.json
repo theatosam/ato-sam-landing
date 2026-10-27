@@ -2,14 +2,49 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/autonomous-mode", "permanent": false }
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.theatosam.com"
+        }
+      ],
+      "destination": "https://theatosam.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/autonomous-mode",
+      "permanent": false
+    }
   ],
   "headers": [
-    { "source": "/autonomous-mode/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-      { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
-    ] }
+    {
+      "source": "/autonomous-mode/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
   ]
 }
