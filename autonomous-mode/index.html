@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autonomous Mode: run your practice like a firm of five</title>
+<meta name="description" content="The back office a small firm would have, set up for one consultant: a morning brief, follow-ups, your pipeline, client work and posts. First command in 48 hours, fully set up in 14 days.">
+<link rel="canonical" href="https://theatosam.com/autonomous-mode">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f0ebdf">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Autonomous Mode">
+<meta property="og:title" content="Run your practice like a firm of five. Alone.">
+<meta property="og:description" content="The back office a small firm would have, set up for one independent consultant. Hours back every week, and nothing slips.">
+<meta property="og:url" content="https://theatosam.com/autonomous-mode">
+<meta property="og:image" content="https://theatosam.com/autonomous-mode/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/autonomous-mode/assets/fonts/spectral-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/autonomous-mode/assets/fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Spectral"; src: url("/autonomous-mode/assets/fonts/spectral-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("/autonomous-mode/assets/fonts/spectral-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("/autonomous-mode/assets/fonts/spectral-latin-500-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("/autonomous-mode/assets/fonts/geist-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("/autonomous-mode/assets/fonts/geist-sans-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("/autonomous-mode/assets/fonts/geist-sans-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --bg: #f0ebdf;
+  --surface: #f7f3ea;
+  --ink: #0d251b;
+  --text: #1f3229;
+  --muted: #55605a;
+  --line: rgba(13, 37, 27, 0.14);
+  --accent: #836220;       /* brass on parchment, any size (4.7:1) */
+  --accent-text: #836220;  /* small text on parchment, AA */
+  --serif: "Spectral", Georgia, serif;
+  --sans: "Geist", -apple-system, "Segoe UI", sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --wrap: 1180px;
+  --gutter: clamp(20px, 5vw, 56px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+body { position: relative; }
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: 0.45; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+img, video, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: 4px; }
+.skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; z-index: 200; }
+.skip:focus { top: 16px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* type */
+h1, h2, h3 { font-family: var(--serif); font-weight: 800; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+h1 { font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 1; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); }
+h3 { font-size: 1.5rem; line-height: 1.15; }
+em { font-style: italic; }
+h1 em, h2 em, h3 em { font-weight: 500; }
+h1 em, .close h2 em { color: var(--accent); }
+.eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: clamp(1.1rem, 1.5vw, 1.25rem); color: var(--text); max-width: 34ch; }
+p { max-width: 62ch; }
+
+/* header */
+.top { display: flex; align-items: center; justify-content: space-between; padding-block: 28px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+.top nav a { font-size: 0.95rem; font-weight: 500; text-decoration: none; color: var(--ink); padding: 10px 2px; border-bottom: 1px solid var(--line); }
+.top nav a:hover { border-color: var(--ink); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 500; text-decoration: none; transition: transform 140ms var(--ease), background-color 200ms var(--ease); }
+.btn:hover { background: #1a3127; }
+.btn:active { transform: scale(0.97); }
+.btn svg { transition: transform 200ms var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+.note { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--muted); margin-top: 18px; }
+.note i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: block; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(32px, 6vw, 88px); align-items: center; padding-block: clamp(32px, 6vw, 72px) clamp(72px, 10vw, 128px); }
+.hero-copy { display: flex; flex-direction: column; gap: 28px; }
+.hero-cta { margin-top: 8px; }
+.film { position: relative; border-radius: 22px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 2px rgba(13,37,27,0.06), 0 30px 70px -20px rgba(13,37,27,0.25); aspect-ratio: 4 / 5; }
+.film video { width: 100%; height: 100%; object-fit: cover; }
+.film figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 18px; font-size: 0.8rem; color: var(--muted); background: linear-gradient(rgba(247,243,234,0), rgba(247,243,234,0.92) 40%); }
+
+/* sections */
+section { padding: clamp(72px, 10vw, 128px) 0; border-top: 1px solid var(--line); }
+.head { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: clamp(24px, 4vw, 64px); align-items: start; margin-bottom: clamp(40px, 6vw, 72px); }
+.head .eyebrow { padding-top: 14px; }
+
+.pains { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: 0 clamp(24px, 4vw, 64px); }
+.pains > * { grid-column: 2; }
+.pains ul { list-style: none; }
+.pains li { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); font-size: 1.15rem; color: var(--ink); }
+.pains li span { font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--accent-text); line-height: 1.2; }
+.after { margin-top: 36px; font-family: var(--serif); font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.15; color: var(--ink); max-width: 28ch; }
+
+.parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(32px, 5vw, 80px); list-style: none; }
+.parts li { padding: 28px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 56px 1fr; gap: 16px; }
+.parts li span { font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--accent-text); line-height: 1.1; }
+.parts h3 { margin-bottom: 8px; }
+.parts p { color: var(--text); }
+.extras { margin-top: clamp(40px, 5vw, 64px); background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: 0.32fr 0.68fr; gap: clamp(16px, 4vw, 64px); }
+.extras ul { list-style: none; display: grid; gap: 14px; }
+.extras li { color: var(--ink); }
+.extras li b { font-weight: 600; }
+
+.steps { list-style: none; display: grid; grid-template-columns: 0.32fr 0.68fr; gap: 0 clamp(24px, 4vw, 64px); }
+.steps li { display: contents; }
+.steps .when { font-family: var(--serif); font-size: 1.9rem; line-height: 1; color: var(--ink); padding: 26px 0; border-top: 1px solid var(--line); }
+.steps .what { padding: 30px 0 26px; border-top: 1px solid var(--line); }
+.steps .what b { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+
+/* guarantee: the one dark band */
+.band { background: var(--ink); color: #efe8dc; border: 0; }
+.band .eyebrow { color: #b9ae9c; }
+.band h2 { color: #f6f1e7; font-size: clamp(2.2rem, 5vw, 4.4rem); max-width: 20ch; }
+.band h2 em { color: #cda454; }  /* brass on pine */
+.band p { font-size: 1.15rem; color: #d9d0c1; margin-top: 28px; max-width: 52ch; }
+.band p b { display: block; color: #f6f1e7; font-weight: 600; margin-bottom: 4px; }
+
+.fit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 5vw, 80px); }
+.fit h3 { margin-bottom: 18px; }
+.fit ul { list-style: none; }
+.fit li { padding: 16px 0 16px 28px; border-top: 1px solid var(--line); position: relative; }
+.fit li::before { content: ""; position: absolute; left: 0; top: 27px; width: 12px; height: 1px; background: var(--ink); }
+.fit .no li::before { background: var(--muted); }
+.fit .no li { color: var(--muted); }
+
+.price { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: clamp(24px, 4vw, 64px); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: clamp(28px, 4vw, 48px); box-shadow: 0 30px 70px -40px rgba(64,38,14,0.35); display: grid; gap: 22px; }
+.amount { font-family: var(--serif); font-size: clamp(3.6rem, 7vw, 5.6rem); line-height: 0.9; color: var(--ink); letter-spacing: -0.03em; }
+.amount small { font-family: var(--sans); font-size: 1rem; letter-spacing: 0; color: var(--muted); margin-left: 10px; }
+.founding { border-top: 1px solid var(--line); padding-top: 22px; display: grid; gap: 6px; }
+.founding strong { font-family: var(--serif); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--accent); }
+.fine { font-size: 0.92rem; color: var(--muted); }
+
+.builder { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
+.builder img { border-radius: 18px; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.builder .text { display: grid; gap: 20px; }
+.builder a { color: var(--accent-text); font-weight: 500; text-underline-offset: 4px; }
+
+.faq { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: clamp(24px, 4vw, 64px); }
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 22px 0; font-size: 1.15rem; font-weight: 500; color: var(--ink); min-height: 44px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--serif); font-size: 1.8rem; line-height: 1; color: var(--muted); transition: transform 200ms var(--ease); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 0 24px; color: var(--text); }
+
+.close { text-align: left; }
+.close h2 { font-size: clamp(3.4rem, 9vw, 8rem); }
+.close p { font-size: 1.2rem; margin: 24px 0 32px; }
+.close .alt { margin-top: 18px; font-size: 0.95rem; color: var(--muted); }
+.close .alt a { color: var(--accent-text); }
+
+footer { border-top: 1px solid var(--line); padding: 32px 0 48px; font-size: 0.9rem; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+footer a { color: var(--muted); }
+
+@media (max-width: 860px) {
+  .hero, .head, .pains, .extras, .steps, .price, .builder, .faq, .fit, .parts { grid-template-columns: 1fr; }
+  .pains > * { grid-column: 1; }
+  .steps .when { padding-bottom: 0; }
+  .steps .what { border-top: 0; padding-top: 8px; }
+  .builder img { max-width: 260px; }
+  .film { max-width: 440px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://theatosam.com/autonomous-mode#service",
+      "name": "Autonomous Mode",
+      "url": "https://theatosam.com/autonomous-mode",
+      "description": "A back office for independent consultants: a morning brief, follow-ups, prospect pipeline, client work and posts, run from one system that knows their practice, with guardrails and a weekly review. Built on Claude.",
+      "areaServed": ["US", "GB", "CA"],
+      "founder": { "@type": "Person", "name": "Ato Sam", "sameAs": ["https://theatosam.substack.com"] },
+      "makesOffer": {
+        "@type": "Offer",
+        "name": "Autonomous Mode install",
+        "price": "7500",
+        "priceCurrency": "USD",
+        "description": "Full install in 14 days, first command within 48 hours, 60 days of support, and 2 guarantees: a full refund if the first command isn't running by day 7, and at least 3 hours a week saved by day 30, measured against a baseline set on the intake call."
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do I need to be technical?", "acceptedAnswer": { "@type": "Answer", "text": "No. You need to know your own work: what you do each week and how you like it done. I handle the setup, and the handover includes a plain-English guide and a recorded walkthrough. Adding a new command later takes a short written description, not code." } },
+        { "@type": "Question", "name": "Will it really sound like me?", "acceptedAnswer": { "@type": "Answer", "text": "It writes from samples of your own writing and a voice profile we build together, then checks every draft against that profile and against common AI-writing habits. You still review everything before it goes out. Generic output usually comes from a blank chat with nothing of yours to work from." } },
+        { "@type": "Question", "name": "Is my client data safe?", "acceptedAnswer": { "@type": "Answer", "text": "The system runs inside your own AI subscription and your own files. Privacy rules are part of the setup, including what it must never store or share. I don't keep copies of your client material, and I'm happy to sign an NDA before we start." } },
+        { "@type": "Question", "name": "Which AI does it run on?", "acceptedAnswer": { "@type": "Answer", "text": "Claude, made by Anthropic. It's the platform I run my own system on every day, so it's the one I can stand behind. If you use ChatGPT today, you can keep it for other work; Autonomous Mode needs a Claude subscription, from $20 a month." } },
+        { "@type": "Question", "name": "Isn't this just better prompts or a custom GPT?", "acceptedAnswer": { "@type": "Answer", "text": "Prompts and custom GPTs help with one task at a time, and most stop being used within weeks. Autonomous Mode is the layer around them: what the AI knows about your practice, the jobs it runs on command and the rules it follows, kept current as your work changes." } },
+        { "@type": "Question", "name": "Why not wait until AI is built into my tools?", "acceptedAnswer": { "@type": "Answer", "text": "Built-in AI will know your documents. It won't know your clients, your offers or how you write unless something tells it. The knowledge layer you build now carries over to whatever tools come next, so the work isn't wasted when they arrive." } },
+        { "@type": "Question", "name": "I don't have time to set this up.", "acceptedAnswer": { "@type": "Answer", "text": "Your time goes into one intake call, a short review at handover and using it on work you were doing anyway. I do the building, and your first command runs within 48 hours. Afterwards it takes about 15 minutes a week, mostly the weekly review it runs with you." } },
+        { "@type": "Question", "name": "What if you don't deliver?", "acceptedAnswer": { "@type": "Answer", "text": "Then you get your money back. Your first command is due by day 2. If it isn't running on your own inbox and calendar by day 7, I refund everything you've paid. All I need from you is the intake call and access on day 1." } },
+        { "@type": "Question", "name": "What if it doesn't save me time?", "acceptedAnswer": { "@type": "Answer", "text": "Then I keep working. On the intake call we note how long your recurring work takes today, and if by day 30 it isn't saving you at least 3 hours a week against that, I keep improving it at no charge until it does. Your part: use the commands on your real work and do the 15-minute weekly review. The review logs your hours, so you have nothing extra to track." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap top">
+  <a class="brand" href="/autonomous-mode" aria-label="Autonomous Mode, home">
+    <svg width="40" height="22" viewBox="0 0 74 40" aria-hidden="true"><rect width="74" height="40" rx="20" fill="#0d251b"/><circle cx="54" cy="20" r="13" fill="#cda454"/></svg>
+    Autonomous Mode
+  </a>
+  <nav aria-label="Primary"><a href="https://calendly.com/theatosam/strategy-call" rel="noopener">Book a call</a></nav>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <div class="hero-copy">
+      <p class="eyebrow">For independent consultants</p>
+      <h1>Run your practice like a firm of five. <em>Alone.</em></h1>
+      <p class="lede">Autonomous Mode is the back office a small firm would have, set up for you: a morning brief from your inbox and calendar, follow-ups that never slip, proposals and client updates that start from everything it knows about your practice, and posts from a 2-minute voice note. At least 3 hours of your week back.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://calendly.com/theatosam/strategy-call" rel="noopener">Book a 20-minute call
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="note"><i></i>The first 5 installs are free.</p>
+      </div>
+    </div>
+    <figure class="film">
+      <video autoplay muted loop playsinline controls preload="metadata" poster="/autonomous-mode/assets/img/film-poster.jpg" width="720" height="900"
+        aria-label="Demo: the same request typed into a typical AI chat, which asks who the client is, and into Autonomous Mode, which loads the client file, applies your voice and drafts the follow-up.">
+        <source src="/autonomous-mode/assets/film.mp4" type="video/mp4">
+      </video>
+    </figure>
+  </div>
+
+  <section aria-labelledby="problem">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The problem</p>
+        <h2 id="problem">You're the whole firm. Most of your week <em>isn't partner work.</em></h2>
+      </div>
+      <div class="pains">
+        <ul>
+          <li><span>i.</span>Inbox triage, scheduling and follow-ups eat the hours before your first client call.</li>
+          <li><span>ii.</span>Every proposal and client update starts with explaining the client to a chat box that has forgotten them, and the draft comes back sounding like everyone else's.</li>
+          <li><span>iii.</span>Your own marketing gets done last, if at all. The prompt library you built last spring hasn't been opened since.</li>
+        </ul>
+        <p class="after">The models are capable. What's missing is the staff around them: something that knows your practice and runs the jobs that aren't yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="installed">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">What gets installed</p>
+        <h2 id="installed">6 parts, built around <em>your practice.</em></h2>
+      </div>
+      <ol class="parts">
+        <li><span>01</span><div><h3>The Practice Brain</h3><p>Your clients, offers, priorities and voice in one place it reads before every task. It remembers between sessions and updates itself as you work.</p></div></li>
+        <li><span>02</span><div><h3>3 commands for your week</h3><p>Chosen on the intake call from the jobs a firm would hand to staff: a morning brief from your inbox and calendar, follow-up chasing, a weekly pipeline check, a proposal from your discovery notes, a client update, or whatever eats your hours.</p></div></li>
+        <li><span>03</span><div><h3>Voice Lock</h3><p>A voice profile built from your own writing. Every draft is checked against it, and against the habits that make text read as AI-written, before you see it.</p></div></li>
+        <li><span>04</span><div><h3>Guardrails</h3><p>Drafts only: it prepares emails and you press send. It works from your sources, flags anything it can't support, and follows the privacy rules you set.</p></div></li>
+        <li><span>05</span><div><h3>The Weekly Review</h3><p>15 minutes it runs with you: priorities updated, friction logged and fixed, so the system gets better instead of going stale.</p></div></li>
+        <li><span>06</span><div><h3>The Handover Kit</h3><p>A plain-English guide, a one-page map of your system and a recorded walkthrough.</p></div></li>
+      </ol>
+      <div class="extras">
+        <p class="eyebrow">Included with it</p>
+        <ul>
+          <li><b>Voice Note to Post.</b> Talk for 2 minutes; get a LinkedIn post in your voice.</li>
+          <li><b>2 months of support,</b> with 1 new command added in month 2.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how">Your first command runs within <em>48 hours.</em></h2>
+      </div>
+      <ol class="steps">
+        <li><p class="when">Day 1</p><p class="what"><b>Intake call.</b> We map your week, your recurring work, your tools and a few samples of your writing.</p></li>
+        <li><p class="when">By day 2</p><p class="what"><b>Your first command.</b> A morning brief from your inbox and calendar, waiting before your first meeting.</p></li>
+        <li><p class="when">End of week 1</p><p class="what"><b>It knows your practice.</b> Clients, offers and voice are in. Your first draft that sounds like you.</p></li>
+        <li><p class="when">End of week 2</p><p class="what"><b>Fully switched on.</b> All 6 parts installed, with the handover.</p></li>
+        <li><p class="when">The next 2 months</p><p class="what"><b>Support.</b> You use it on real work. We adjust, add your 4th command and measure your hours before and after.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="guarantee">
+    <div class="wrap">
+      <p class="eyebrow">The guarantees</p>
+      <h2 id="guarantee">Working in 1 week. <em>Your hours back in a month.</em></h2>
+      <p><b>1 week: your money back.</b> If your first command isn't running on your own inbox and calendar by day 7, I refund everything you've paid. You join the intake call and give access on day 1; I do the rest.</p>
+      <p><b>1 month: 3 hours a week.</b> On the intake call, we write down how long your recurring work takes today. If by day 30 Autonomous Mode isn't saving you at least 3 hours a week against that, I keep working on it at no charge until it does. Your part: use the commands on your real work and do the 15-minute weekly review. The review logs your hours, so you have nothing extra to track.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="fit">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Who it's for</p>
+        <h2 id="fit">Built for the person who <em>runs the practice.</em></h2>
+      </div>
+      <div class="fit">
+        <div>
+          <h3>For you if</h3>
+          <ul>
+            <li>You run a consulting practice of 1 to 10 people.</li>
+            <li>You do the follow-ups, proposals, admin and marketing yourself, on top of the client work.</li>
+            <li>You use AI already and want more than a chat box.</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h3>Not for you if</h3>
+          <ul>
+            <li>You want someone to do the work for you rather than a system you use.</li>
+            <li>Your work has no repeating shape to hand over.</li>
+            <li>You're planning a rollout across a large firm.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="price">
+    <div class="wrap price">
+      <div>
+        <p class="eyebrow">Price</p>
+        <h2 id="price" style="margin-top:14px">One install, <em>one price.</em></h2>
+      </div>
+      <div class="card">
+        <p class="amount">$7,500 <small>USD, paid in full</small></p>
+        <p>The full install and 2 months of support.</p>
+        <p class="fine">Or pay in 2 parts: $4,000 on day 1 and $4,000 on day 14.</p>
+        <div class="founding">
+          <p class="eyebrow">The first 5</p>
+          <strong>Free</strong>
+          <p>The full install, free, for the first 5 consultants, in exchange for an honest case study: two 30-minute calls, one before and one a month in. You keep everything I build. After the fifth, it's $7,500.</p>
+        </div>
+        <p class="fine">Your Claude subscription is billed separately by Anthropic, from $20 a month. Optional care once support ends: $1,500 a month for a new command and a tune-up each month.</p>
+        <div><a class="btn" href="https://calendly.com/theatosam/strategy-call" rel="noopener">Book a 20-minute call
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        <p class="fine">Includes both guarantees: a working first command within 1 week or your money back, and 3 hours a week back within a month.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="builder">
+    <div class="wrap builder">
+      <img src="/autonomous-mode/assets/img/ato-sam.webp" width="640" height="640" loading="lazy" alt="Ato Sam, head-and-shoulders portrait against a cream background.">
+      <div class="text">
+        <p class="eyebrow">Who builds it</p>
+        <h2 id="builder">Built on a system <em>I run every day.</em></h2>
+        <p>I'm Ato Sam. I run my business, my day job and my life on the same kind of system: a morning brief across two inboxes, a cold email pipeline that finds prospects and logs every reply, a writing pipeline that turns voice notes into drafts, an evening review that catches my patterns, guardrails that catch my usual mistakes, and a log of every decision. I also write Autonomy Architect, essays on autonomy and building a life deliberately. Autonomous Mode is that system, set up around your practice instead of mine.</p>
+        <p><a href="https://theatosam.substack.com" rel="noopener">Read Autonomy Architect</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq">
+    <div class="wrap faq">
+      <div>
+        <p class="eyebrow">Questions</p>
+        <h2 id="faq" style="margin-top:14px">Before you <em>book.</em></h2>
+      </div>
+      <div>
+        <details><summary>Do I need to be technical?</summary><p>No. You need to know your own work: what you do each week and how you like it done. I handle the setup, and the handover includes a plain-English guide and a recorded walkthrough. Adding a new command later takes a short written description, not code.</p></details>
+        <details><summary>Will it really sound like me?</summary><p>It writes from samples of your own writing and a voice profile we build together, then checks every draft against that profile and against common AI-writing habits. You still review everything before it goes out. Generic output usually comes from a blank chat with nothing of yours to work from.</p></details>
+        <details><summary>Is my client data safe?</summary><p>The system runs inside your own AI subscription and your own files. Privacy rules are part of the setup, including what it must never store or share. I don't keep copies of your client material, and I'm happy to sign an NDA before we start.</p></details>
+        <details><summary>Which AI does it run on?</summary><p>Claude, made by Anthropic. It's the platform I run my own system on every day, so it's the one I can stand behind. If you use ChatGPT today, you can keep it for other work; Autonomous Mode needs a Claude subscription, from $20 a month.</p></details>
+        <details><summary>Isn't this just better prompts or a custom GPT?</summary><p>Prompts and custom GPTs help with one task at a time, and most stop being used within weeks. Autonomous Mode is the layer around them: what the AI knows about your practice, the jobs it runs on command and the rules it follows, kept current as your work changes.</p></details>
+        <details><summary>Why not wait until AI is built into my tools?</summary><p>Built-in AI will know your documents. It won't know your clients, your offers or how you write unless something tells it. The knowledge layer you build now carries over to whatever tools come next, so the work isn't wasted when they arrive.</p></details>
+        <details><summary>I don't have time to set this up.</summary><p>Your time goes into one intake call, a short review at handover and using it on work you were doing anyway. I do the building, and your first command runs within 48 hours. Afterwards it takes about 15 minutes a week, mostly the weekly review it runs with you.</p></details>
+        <details><summary>What if you don't deliver?</summary><p>Then you get your money back. Your first command is due by day 2. If it isn't running on your own inbox and calendar by day 7, I refund everything you've paid. All I need from you is the intake call and access on day 1.</p></details>
+        <details><summary>What if it doesn't save me time?</summary><p>Then I keep working. On the intake call we note how long your recurring work takes today, and if by day 30 it isn't saving you at least 3 hours a week against that, I keep improving it at no charge until it does. Your part: use the commands on your real work and do the 15-minute weekly review. The review logs your hours, so you have nothing extra to track.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" aria-labelledby="switch">
+    <div class="wrap">
+      <h2 id="switch">See if it fits <em>your week.</em></h2>
+      <p>20 minutes, no slides. We look at your week and decide whether Autonomous Mode is worth building for you.</p>
+      <a class="btn" href="https://calendly.com/theatosam/strategy-call" rel="noopener">Book a 20-minute call
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="alt">or email <a href="mailto:atosam23@gmail.com">atosam23@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Autonomous Mode. A personal AI system for independent consultants.</span>
+    <span><a href="https://theatosam.substack.com" rel="noopener">Autonomy Architect</a> &middot; <a href="/privacy">Privacy</a> &middot; &copy; 2026</span>
+  </div>
+</footer>
+</body>
+</html>
