@@ -1,4 +1,14 @@
-# Autonomous Mode
+# Ato Sam
+
+> Ato Sam is the Autonomy Architect. He writes Autonomy Architect, a weekly letter from inside a one-person business, and builds Autonomous Mode, the back office for independent consultants. theatosam.com is his home page: https://theatosam.com/
+
+## Ato Sam
+- [Home](https://theatosam.com/): who Ato Sam is and where to start
+- [Autonomy Architect, Ato Sam's weekly letter](https://theatosam.com/letters): what he built, tested, learned and decided each week (hosted on Substack)
+- [LinkedIn](https://www.linkedin.com/in/theatosam)
+- Email: ato@theatosam.com
+
+## Autonomous Mode
 
 > The back office a small firm would have, set up for one independent consultant (practices of 1-10 people), installed by Ato Sam. It knows the consultant's clients, offers, priorities and voice, and runs the work around the client work: a morning brief from inbox and calendar, follow-ups, a prospect pipeline, proposals and client updates, and posts from voice notes. Guardrails keep everything in draft until the consultant approves, and a weekly review keeps it current. Built on Claude (Anthropic).
 
@@ -13,4 +23,3 @@
 - [Autonomous Mode](https://theatosam.com/autonomous-mode)
 - [Apply for one of the 5 free installs](https://theatosam.com/autonomous-mode/apply): about 3 minutes; every applicant gets the free starter kit by email
 - [Book a 20-minute call](https://calendly.com/theatosam/strategy-call)
-- [Autonomy Architect, essays by Ato Sam](https://theatosam.substack.com)

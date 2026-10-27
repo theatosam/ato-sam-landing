@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ato Sam, Autonomy Architect</title>
+<meta name="description" content="Ato Sam writes Autonomy Architect, a weekly letter from inside a one-person business, and builds Autonomous Mode, the back office for independent consultants.">
+<link rel="canonical" href="https://theatosam.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f0ebdf">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Ato Sam">
+<meta property="og:title" content="Ato Sam, Autonomy Architect">
+<meta property="og:description" content="Autonomy Architect, a weekly letter from inside a one-person business, and the back office for independent consultants.">
+<meta property="og:url" content="https://theatosam.com/">
+<meta property="og:image" content="https://theatosam.com/autonomous-mode/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/autonomous-mode/assets/fonts/spectral-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/autonomous-mode/assets/fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://theatosam.com/#ato",
+      "name": "Ato Sam",
+      "url": "https://theatosam.com/",
+      "image": "https://theatosam.com/assets/img/ato-sam.webp",
+      "jobTitle": "Autonomy Architect",
+      "email": "mailto:ato@theatosam.com",
+      "sameAs": ["https://www.linkedin.com/in/theatosam", "https://theatosam.substack.com"],
+      "knowsAbout": ["Personal AI systems for independent consultants", "One-person businesses", "Building in public"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://theatosam.com/#site",
+      "url": "https://theatosam.com/",
+      "name": "Ato Sam",
+      "publisher": { "@id": "https://theatosam.com/#ato" }
+    },
+    {
+      "@type": "ProfilePage",
+      "url": "https://theatosam.com/",
+      "name": "Ato Sam, Autonomy Architect",
+      "mainEntity": { "@id": "https://theatosam.com/#ato" },
+      "hasPart": [
+        { "@type": "Service", "name": "Autonomous Mode", "url": "https://theatosam.com/autonomous-mode", "description": "The back office a small firm would have, set up for one independent consultant: a morning brief, follow-ups, a prospect pipeline, client work and posts.", "provider": { "@id": "https://theatosam.com/#ato" } },
+        { "@type": "Periodical", "name": "Autonomy Architect", "url": "https://theatosam.substack.com", "description": "Ato Sam's weekly letter from inside a one-person business.", "author": { "@id": "https://theatosam.com/#ato" } }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+@font-face { font-family: "Spectral"; src: url("/autonomous-mode/assets/fonts/spectral-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("/autonomous-mode/assets/fonts/spectral-latin-500-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("/autonomous-mode/assets/fonts/geist-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("/autonomous-mode/assets/fonts/geist-sans-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("/autonomous-mode/assets/fonts/geist-sans-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --bg: #f0ebdf;
+  --surface: #f7f3ea;
+  --ink: #0d251b;
+  --text: #1f3229;
+  --muted: #55605a;
+  --line: rgba(13, 37, 27, 0.14);
+  --accent: #836220;       /* brass on parchment, any size (4.7:1) */
+  --pine: #0d251b;
+  --bone: #ebe8de;
+  --brass: #cda454;        /* brass on pine only (7.0:1); never on parchment */
+  --serif: "Spectral", Georgia, serif;
+  --sans: "Geist", -apple-system, "Segoe UI", sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --wrap: 1180px;
+  --gutter: clamp(20px, 5vw, 56px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+body { position: relative; background: var(--bg); }
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: 0.45; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; z-index: 200; }
+.skip:focus { top: 16px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* type */
+h1, h2, h3 { font-family: var(--serif); font-weight: 800; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+h1 { font-size: clamp(2.6rem, 5.6vw, 4.8rem); }
+h2 { font-size: clamp(2rem, 3.8vw, 3.1rem); }
+h3 { font-size: clamp(1.45rem, 2.2vw, 1.85rem); line-height: 1.1; }
+h1 em { font-weight: 500; color: var(--accent); }
+.eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+p { max-width: 62ch; }
+.arrow { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; color: var(--ink); text-decoration: none; }
+.arrow svg { transition: transform 200ms var(--ease); }
+.arrow:hover svg { transform: translateX(3px); }
+
+/* header */
+.top { display: flex; align-items: center; justify-content: space-between; padding-block: 28px; }
+.brand { font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; padding: 10px 0; }
+.top nav a { font-size: 0.95rem; font-weight: 500; text-decoration: none; color: var(--ink); padding: 10px 2px; border-bottom: 1px solid var(--line); }
+.top nav a:hover { border-color: var(--ink); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--ink); color: var(--bg); font: inherit; font-weight: 500; text-decoration: none; border: 0; cursor: pointer; transition: transform 140ms var(--ease), background-color 200ms var(--ease); }
+.btn:hover { background: #1a3127; }
+.btn:active { transform: scale(0.97); }
+.btn svg { transition: transform 200ms var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+
+/* sections */
+section { padding-block: clamp(64px, 9vw, 120px); }
+.head { display: grid; gap: 14px; justify-items: center; text-align: center; margin-bottom: clamp(36px, 5vw, 60px); }
+.head p:not(.eyebrow) { color: var(--muted); }
+.rule { border-top: 1px solid var(--line); }
+
+/* hero */
+.hero { display: grid; gap: 26px; justify-items: center; text-align: center; padding-block: clamp(56px, 10vw, 136px) clamp(64px, 10vw, 136px); }
+.hero h1 { max-width: 15ch; }
+.hero .lede { font-size: clamp(1.1rem, 1.5vw, 1.25rem); max-width: 40ch; }
+
+/* resources */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.tile { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 14px 14px clamp(24px, 3vw, 32px); display: grid; gap: 14px; align-content: start; box-shadow: 0 30px 70px -48px rgba(64,38,14,0.35); transition: transform 220ms var(--ease), border-color 220ms var(--ease); }
+.tile > :not(.panel) { margin-inline: clamp(10px, 1.6vw, 18px); }
+.tile.link:hover { transform: translateY(-2px); border-color: rgba(13,37,27,0.28); }
+.tile .arrow::after { content: ""; position: absolute; inset: 0; border-radius: 22px; } /* whole tile clickable */
+.tile.link:hover .arrow svg { transform: translateX(3px); }
+.tile.wide { grid-column: 1 / -1; grid-template-columns: 1.15fr 1fr; align-items: center; column-gap: clamp(20px, 3vw, 40px); padding: 14px; }
+.tile.wide .body { display: grid; gap: 14px; padding-block: 16px; margin-inline: 0 clamp(16px, 3vw, 36px); }
+.tile.wide h3 { font-size: clamp(1.9rem, 3vw, 2.5rem); }
+
+.panel { border-radius: 14px; aspect-ratio: 16 / 10; display: grid; place-items: center; overflow: hidden; position: relative; }
+.panel.am { background: var(--bg); border: 1px solid var(--line); }
+.panel.am .lockup { display: flex; align-items: center; gap: clamp(14px, 2vw, 22px); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 2.1rem); color: var(--ink); letter-spacing: -0.02em; }
+.panel.am svg { width: clamp(64px, 8vw, 96px); height: auto; }
+.panel.aa { background: var(--pine); padding: 24px; text-align: center; }
+.panel.aa .word { font-family: var(--serif); font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1; letter-spacing: -0.02em; color: var(--bone); }
+.panel.aa .word span { color: var(--brass); }
+.panel.kit { background: #e7e0cf; }
+.sheet { width: 58%; aspect-ratio: 3 / 4; background: #fbf8f1; border-radius: 6px; box-shadow: 0 18px 40px -18px rgba(13,37,27,0.35); transform: rotate(-3deg) translateY(12%); padding: 9% 9%; display: grid; align-content: start; gap: 8px; }
+.sheet b { font-family: var(--serif); font-weight: 800; color: var(--ink); font-size: clamp(0.95rem, 1.5vw, 1.2rem); line-height: 1.05; letter-spacing: -0.01em; }
+.sheet i { display: block; height: 6px; border-radius: 3px; background: rgba(13,37,27,0.12); }
+.sheet i:nth-of-type(2) { width: 80%; } .sheet i:nth-of-type(4) { width: 65%; }
+
+/* kit form */
+.kit-row { display: flex; gap: 10px; }
+.kit-row input { font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; min-height: 48px; padding: 0 14px; width: 100%; min-width: 0; }
+.kit-row input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.kit-row .btn { min-height: 48px; padding: 0 20px; white-space: nowrap; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.fine { font-size: 0.88rem; color: var(--muted); }
+.status:empty { display: none; }
+
+/* letters */
+.letters { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px 24px; }
+.letter { position: relative; display: grid; gap: 12px; align-content: start; }
+.letter img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.letter h3 a { text-decoration: none; }
+.letter h3 a::after { content: ""; position: absolute; inset: 0; }
+.letter:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.letter time { font-size: 0.85rem; color: var(--muted); }
+.letters.one { grid-template-columns: 1fr; }
+.letters.one .letter { grid-template-columns: 1.2fr 1fr; column-gap: clamp(24px, 4vw, 56px); align-items: center; }
+.letters.one .letter img { grid-row: span 4; align-self: center; }
+.letters.one .letter h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+.all { display: flex; justify-content: center; margin-top: clamp(36px, 5vw, 56px); }
+
+/* about */
+.about { display: grid; grid-template-columns: auto 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; max-width: 960px; margin: 0 auto; }
+.about img { width: clamp(200px, 24vw, 300px); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 30px 70px -30px rgba(13,37,27,0.35); }
+.about .text { display: grid; gap: 16px; }
+.about .links { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 4px; }
+.about .links a { font-weight: 500; color: var(--ink); text-underline-offset: 4px; text-decoration-color: var(--line); padding: 4px 0; }
+.about .links a:hover { text-decoration-color: var(--ink); }
+
+/* footer */
+footer { border-top: 1px solid var(--line); padding-block: clamp(48px, 6vw, 72px) 32px; }
+footer .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+footer .me { display: grid; gap: 8px; color: var(--muted); }
+footer .me b { font-weight: 600; color: var(--ink); }
+footer .cta { display: grid; gap: 12px; justify-items: start; }
+footer .cta h2 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+footer .base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
+footer nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+footer nav a { color: var(--ink); text-decoration: none; padding: 6px 0; }
+footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+  .tile.wide { grid-template-columns: 1fr; padding: 14px 14px 28px; }
+  .tile.wide .body { margin-inline: clamp(10px, 1.6vw, 18px); padding-block: 0; }
+  .letters.one .letter { grid-template-columns: 1fr; }
+  .letters.one .letter img { grid-row: auto; }
+  .about { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .about .links { justify-content: center; }
+  footer .cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .kit-row { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap top">
+  <a class="brand" href="/" aria-label="Ato Sam, home">Ato Sam</a>
+  <nav aria-label="Primary"><a href="/letters">Read the letters</a></nav>
+</div>
+
+<main id="main">
+  <section class="wrap hero" aria-labelledby="intro">
+    <p class="eyebrow">Ato Sam &middot; Autonomy Architect</p>
+    <h1 id="intro">I build systems that give one person <em>the reach of a firm.</em></h1>
+    <p class="lede">I write Autonomy Architect, a weekly letter from inside a one-person business.</p>
+    <a class="btn" href="/letters">Get the weekly letter
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </section>
+
+  <section class="rule" id="resources" aria-labelledby="res">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Resources</p>
+        <h2 id="res">Start with one of these.</h2>
+      </div>
+      <div class="grid">
+        <article class="tile wide link">
+          <div class="panel am" aria-hidden="true">
+            <div class="lockup"><svg viewBox="0 0 74 40"><rect width="74" height="40" rx="20" fill="#0d251b"/><circle cx="54" cy="20" r="13" fill="#cda454"/></svg>Autonomous Mode</div>
+          </div>
+          <div class="body">
+            <p class="eyebrow">The install</p>
+            <h3>Autonomous Mode</h3>
+            <p>The back office a small firm would have, set up for one independent consultant: a morning brief, follow-ups, your pipeline, client work and posts. Nothing goes out without your OK. The first 5 installs are free.</p>
+            <a class="arrow" href="/autonomous-mode">See how it works
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <article class="tile link">
+          <div class="panel aa" aria-hidden="true"><p class="word">Autonomy <span>Architect</span></p></div>
+          <p class="eyebrow">The letters</p>
+          <h3>Autonomy Architect</h3>
+          <p>One letter a week: what I built, tested, learned and decided.</p>
+          <a class="arrow" href="/letters">Read the letters
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="tile">
+          <div class="panel kit" aria-hidden="true"><div class="sheet"><b>The 30-minute setup</b><i></i><i></i><i></i><i></i></div></div>
+          <p class="eyebrow">Free</p>
+          <h3>The 30-minute setup</h3>
+          <p>Three steps so your assistant knows your business, plus a first command: a morning brief from your inbox and calendar.</p>
+          <form id="kit" action="/api/kit" method="post">
+            <div class="kit-row"><input type="email" name="email" autocomplete="email" maxlength="200" placeholder="Email" aria-label="Email" required><button class="btn" type="submit">Send me the kit</button></div>
+            <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+            <p class="fine status" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule" aria-labelledby="let">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The letters</p>
+        <h2 id="let">The latest from Autonomy Architect.</h2>
+      </div>
+      <div class="letters one" id="letters">
+        <article class="letter">
+          <img src="https://substack-post-media.s3.amazonaws.com/public/images/4ca90ee1-72a7-4534-8d11-9b9a2899874f_1456x819.jpeg" width="1456" height="819" loading="lazy" alt="">
+          <time datetime="2026-10-25">25 October 2026</time>
+          <h3><a href="https://theatosam.substack.com/p/my-assistant-gave-my-day-610-i-think">My assistant gave my day 6/10. I think it's wrong.</a></h3>
+          <p>I did the one job I set myself, every morning, all week. My scorecard still said 6 out of 10.</p>
+        </article>
+      </div>
+      <div class="all"><a class="arrow" href="/letters">Read all letters
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+  </section>
+
+  <section class="rule" aria-labelledby="who">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">About me</p>
+        <h2 id="who">Who is Ato Sam?</h2>
+      </div>
+      <div class="about">
+        <img src="/assets/img/ato-sam.webp" width="720" height="720" loading="lazy" alt="Ato Sam, head-and-shoulders portrait in a navy shirt against a grey-green backdrop.">
+        <div class="text">
+          <h3>Hey, I'm Ato.</h3>
+          <p>I write Autonomy Architect and I build Autonomous Mode, the back office for independent consultants.</p>
+          <p>I run my business, my day job and my life on the same system: over 20 commands, a cold email pipeline, an evening review that catches my patterns, and guardrails that block the things I never want it to do. Autonomous Mode is that system, set up around a consultant's own work.</p>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/theatosam" rel="noopener">LinkedIn</a>
+            <a href="mailto:ato@theatosam.com">ato@theatosam.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="me">
+        <b>Ato Sam &middot; Autonomy Architect</b>
+        <span>Systems that give one person the reach of a firm.</span>
+      </div>
+      <div class="cta">
+        <h2>Get the weekly letter.</h2>
+        <a class="arrow" href="/letters">Read Autonomy Architect
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="base">
+      <span>&copy; 2026 Ato Sam</span>
+      <nav aria-label="Footer">
+        <a href="/letters">Letters</a>
+        <a href="/autonomous-mode">Autonomous Mode</a>
+        <a href="https://www.linkedin.com/in/theatosam" rel="noopener">LinkedIn</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var form = document.getElementById("kit");
+  var status = form.querySelector(".status");
+  var button = form.querySelector("button");
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    button.disabled = true;
+    status.textContent = "Sending...";
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      form.reset();
+      status.textContent = "Done. Check your inbox and click confirm to open the kit. Not there? Look in Promotions.";
+    }).catch(function () {
+      button.disabled = false;
+      status.textContent = "That didn't go through. Please try again in a minute.";
+    });
+  });
+
+  // Letters: the static card above is the fallback; the feed replaces it with the latest six.
+  var box = document.getElementById("letters");
+  function el(tag, text) { var e = document.createElement(tag); if (text) e.textContent = text; return e; }
+  fetch("/api/letters").then(function (r) { return r.ok ? r.json() : null; }).then(function (data) {
+    if (!data || !data.letters || !data.letters.length) return;
+    box.textContent = "";
+    box.className = "letters" + (data.letters.length === 1 ? " one" : "");
+    data.letters.forEach(function (l) {
+      var card = el("article"); card.className = "letter";
+      if (l.image) { var img = el("img"); img.src = l.image; img.alt = ""; img.loading = "lazy"; img.width = 1456; img.height = 819; card.appendChild(img); }
+      var t = el("time", new Date(l.date + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })); t.dateTime = l.date; card.appendChild(t);
+      var h = el("h3"), a = el("a", l.title); a.href = l.link; h.appendChild(a); card.appendChild(h);
+      if (l.description) card.appendChild(el("p", l.description));
+      box.appendChild(card);
+    });
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>

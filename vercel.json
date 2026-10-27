@@ -19,8 +19,8 @@
       "permanent": true
     },
     {
-      "source": "/",
-      "destination": "/autonomous-mode",
+      "source": "/letters",
+      "destination": "https://theatosam.substack.com",
       "permanent": false
     }
   ],
