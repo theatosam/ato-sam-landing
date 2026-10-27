@@ -3,8 +3,11 @@
 
 const KIT = "https://api.kit.com/v4";
 
+// "Starter kit" form. Its confirmation (double opt-in) email delivers the kit; the free plan has no automations.
+const FORM_ID = 10104292;
+
 // Tags are looked up by name and created if missing, so Kit needs no manual setup.
-// "starter-kit" is the automation trigger that sends the kit email.
+// "starter-kit" marks who asked for the kit; the form, not the tag, sends it.
 const TAGS = {
   kit: "starter-kit",
   qualified: "applicant-qualified",
@@ -60,15 +63,18 @@ async function ensureFields() {
   return fieldKeys;
 }
 
-// Create or update the subscriber, then apply each tag.
+// Create the subscriber as inactive, add them to the form (Kit sends the confirmation email with the kit),
+// then apply each tag. Order matters: an "active" subscriber gets no confirmation email.
+// An existing subscriber keeps their state; Kit only updates name and fields.
 async function subscribe(email, firstName, fields, tagNames) {
-  const body = { email_address: email, state: "active" };
+  const body = { email_address: email, state: "inactive" };
   if (firstName) body.first_name = firstName;
   if (fields) {
     const keys = await ensureFields();
     body.fields = Object.fromEntries(Object.entries(fields).map(([label, v]) => [keys[label], String(v)]));
   }
   await kit("/subscribers", "POST", body);
+  await kit(`/forms/${FORM_ID}/subscribers`, "POST", { email_address: email, referrer: "https://theatosam.com/autonomous-mode/apply" });
   const ids = await ensureTags();
   for (const name of tagNames) {
     await kit(`/tags/${ids[name]}/subscribers`, "POST", { email_address: email });

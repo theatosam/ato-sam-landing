@@ -1,5 +1,5 @@
 // POST /api/apply: application for a free install. Scores it, writes it to Kit, tags it.
-// Everyone gets the "starter-kit" tag (the kit email); the score and gate stay invisible to the applicant.
+// Everyone joins the kit form (its confirmation email sends the kit); the score and gate stay invisible to the applicant.
 
 const { TAGS, TARGET_COUNTRIES, POINTS, subscribe, clean, validEmail, score, guard } = require("./_kit");
 

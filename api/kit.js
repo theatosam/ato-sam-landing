@@ -1,4 +1,4 @@
-// POST /api/kit: "just want the starter kit?" form. Adds the email to Kit with the "starter-kit" tag.
+// POST /api/kit: "just want the starter kit?" form. Adds the email to the Kit form, which emails the kit.
 
 const { TAGS, subscribe, clean, validEmail, guard } = require("./_kit");
 
