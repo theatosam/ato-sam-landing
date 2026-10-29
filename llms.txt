@@ -10,13 +10,13 @@
 
 ## Autonomous Mode
 
-> The back office a small firm would have, set up for one independent consultant (practices of 1-10 people), installed by Ato Sam. It knows the consultant's clients, offers, priorities and voice, and runs the work around the client work: a morning brief from inbox and calendar, follow-ups, a prospect pipeline, proposals and client updates, and posts from voice notes. Guardrails keep everything in draft until the consultant approves, and a weekly review keeps it current. Built on Claude (Anthropic).
+> Business development for one independent consultant (practices of 1-10 people), with the back office a small firm would have underneath, installed by Ato Sam. It knows the consultant's clients, offers, priorities and voice. Every morning it lists who is due a follow-up (open leads, proposals out, past clients gone quiet) with the message drafted, chases proposals to a yes or no, and drafts referral, testimonial and next-project asks when a project lands well. Underneath: a morning brief from inbox and calendar, client memory, and posts from voice notes. Guardrails keep everything in draft until the consultant approves, and a weekly review keeps it current. Built on Claude (Anthropic).
 
 ## Offer
-- First command (a morning brief from inbox and calendar) within 48 hours; fully set up in 14 days; 60 days of support.
+- First command (the daily pipeline: who is due a follow-up, message drafted) within 48 hours; fully set up in 14 days; 60 days of support.
 - Six parts: Practice Brain, three commands, Voice Lock, Guardrails (drafts only), Weekly Review, Handover Kit. Includes Voice Note to Post.
 - Guarantee 1 (risk of starting): full refund of everything paid if the first command isn't running on the client's own inbox and calendar by day 7. Client's part: attend the intake call and give access on day 1.
-- Guarantee 2: if by day 30 it isn't saving at least three hours a week against a baseline of their recurring work written down on the intake call, work continues at no charge until it does.
+- Guarantee 2: once it is running, no open lead or proposal goes more than 2 working days without a follow-up drafted for the consultant; if one does, work continues at no charge until it doesn't.
 - Price: $7,500 USD paid in full, or two payments of $4,000 (day 1 and day 14). The first 5 installs are free, in full, in exchange for a case study (two 30-minute calls); after that, $7,500. Optional care $1,500/month after day 74. Claude subscription billed separately by Anthropic.
 
 ## Links
