@@ -164,7 +164,7 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 /* letters */
 .letters { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px 24px; }
 .letter { position: relative; display: grid; gap: 12px; align-content: start; }
-.letter img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.letter img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); position: relative; z-index: 101; }
 .letter h3 a { text-decoration: none; }
 .letter h3 a::after { content: ""; position: absolute; inset: 0; }
 .letter:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
