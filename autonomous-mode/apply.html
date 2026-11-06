@@ -241,8 +241,8 @@ footer a { color: var(--muted); }
 .consent { display: grid; grid-template-columns: 22px 1fr; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); font-size: 0.95rem; color: var(--text); }
 .consent input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--ink); }
 button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 500; }
-.kit { border-top: 1px solid var(--line); padding-top: 32px; }
-.kit-form { display: grid; gap: 12px; max-width: 520px; }
+.kit-form { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 32px; }
+.kit-form .kit-row { max-width: 520px; }
 .kit-title { font-weight: 500; color: var(--muted); }
 .kit-row { display: flex; gap: 10px; }
 .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); white-space: nowrap; min-height: 48px; }
@@ -298,7 +298,7 @@ button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 500; }
 
       <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I'll do two 30-minute video calls: one before the install, one a month in. Both are recorded. If the install keeps my pipeline moving, Ato can use short clips and quotes from the second call, with my name, to show the results. I see every clip before it's used.</span></label>
 
-      <div><button class="btn" type="submit">Apply for a place
+      <div><button class="btn" type="submit">Apply for a free install
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
       <p class="fine status" role="status" aria-live="polite"></p>
     </form>

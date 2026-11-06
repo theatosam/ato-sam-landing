@@ -119,8 +119,13 @@ p { max-width: 62ch; }
 
 /* sections */
 section { padding-block: clamp(64px, 9vw, 120px); }
-.head { display: grid; gap: 14px; justify-items: center; text-align: center; margin-bottom: clamp(36px, 5vw, 60px); }
-.head p:not(.eyebrow) { color: var(--muted); }
+/* ledger grid, shared with the offer page: label left, headline and content right */
+.head { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: clamp(24px, 4vw, 64px); align-items: start; margin-bottom: clamp(40px, 6vw, 72px); }
+.head .eyebrow { padding-top: 14px; }
+.head.small h2 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); }
+.head.small .eyebrow { padding-top: 8px; }
+.ledger { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: 0 clamp(24px, 4vw, 64px); }
+.ledger > * { grid-column: 2; }
 .rule { border-top: 1px solid var(--line); }
 
 /* hero */
@@ -128,29 +133,19 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 .hero h1 { max-width: 15ch; }
 .hero .lede { font-size: clamp(1.1rem, 1.5vw, 1.25rem); max-width: 40ch; }
 
-/* resources */
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.tile { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 14px 14px clamp(24px, 3vw, 32px); display: grid; gap: 14px; align-content: start; box-shadow: 0 30px 70px -48px rgba(64,38,14,0.35); transition: transform 220ms var(--ease), border-color 220ms var(--ease); }
-.tile > :not(.panel) { margin-inline: clamp(10px, 1.6vw, 18px); }
-.tile.link:hover { transform: translateY(-2px); border-color: rgba(13,37,27,0.28); }
-.tile .arrow::after { content: ""; position: absolute; inset: 0; border-radius: 22px; } /* whole tile clickable */
-.tile.link:hover .arrow svg { transform: translateX(3px); }
-.tile.wide { grid-column: 1 / -1; grid-template-columns: 1.15fr 1fr; align-items: center; column-gap: clamp(20px, 3vw, 40px); padding: 14px; }
-.tile.wide .body { display: grid; gap: 14px; padding-block: 16px; margin-inline: 0 clamp(16px, 3vw, 36px); }
-.tile.wide h3 { font-size: clamp(1.9rem, 3vw, 2.5rem); }
-
-.panel { border-radius: 14px; aspect-ratio: 16 / 10; display: grid; place-items: center; overflow: hidden; position: relative; }
-.panel.am { background: var(--bg); border: 1px solid var(--line); }
-.panel.am .lockup { display: flex; align-items: center; gap: clamp(14px, 2vw, 22px); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 2.1rem); color: var(--ink); letter-spacing: -0.02em; }
-.panel.am svg { width: clamp(64px, 8vw, 96px); height: auto; }
-.panel.aa { background: var(--pine); padding: 24px; text-align: center; }
-.panel.aa .word { font-family: var(--serif); font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1; letter-spacing: -0.02em; color: var(--bone); }
-.panel.aa .word span { color: var(--brass); }
-.panel.kit { background: #e7e0cf; }
-.sheet { width: 58%; aspect-ratio: 3 / 4; background: #fbf8f1; border-radius: 6px; box-shadow: 0 18px 40px -18px rgba(13,37,27,0.35); transform: rotate(-3deg) translateY(12%); padding: 9% 9%; display: grid; align-content: start; gap: 8px; }
-.sheet b { font-family: var(--serif); font-weight: 800; color: var(--ink); font-size: clamp(0.95rem, 1.5vw, 1.2rem); line-height: 1.05; letter-spacing: -0.01em; }
-.sheet i { display: block; height: 6px; border-radius: 3px; background: rgba(13,37,27,0.12); }
-.sheet i:nth-of-type(2) { width: 80%; } .sheet i:nth-of-type(4) { width: 65%; }
+/* resources: no cards; one real image (the product), rules between items */
+.feature { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; padding: 28px 0 clamp(36px, 4vw, 48px); border-top: 1px solid var(--line); }
+.feature img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); position: relative; z-index: 101; }
+.feature .body { display: grid; gap: 14px; }
+.feature h3 { font-size: clamp(1.9rem, 3vw, 2.5rem); }
+.feature .arrow::after { content: ""; position: absolute; inset: 0; z-index: 102; } /* whole row clickable */
+.feature:hover .arrow svg { transform: translateX(3px); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(32px, 5vw, 64px); }
+.item { position: relative; display: grid; gap: 12px; align-content: start; padding-top: 28px; border-top: 1px solid var(--line); }
+.item.link .arrow::after { content: ""; position: absolute; inset: 0; }
+.item.link:hover .arrow svg { transform: translateX(3px); }
+.item .kit-row { flex-wrap: wrap; }
+.item .kit-row input { flex: 1 1 100%; }
 
 /* kit form */
 .kit-row { display: flex; gap: 10px; }
@@ -173,12 +168,13 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 .letters.one .letter { grid-template-columns: 1.2fr 1fr; column-gap: clamp(24px, 4vw, 56px); align-items: center; }
 .letters.one .letter img { grid-row: span 4; align-self: center; }
 .letters.one .letter h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
-.all { display: flex; justify-content: center; margin-top: clamp(36px, 5vw, 56px); }
+.all { display: flex; margin-top: clamp(36px, 5vw, 56px); }
 
-/* about */
-.about { display: grid; grid-template-columns: auto 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; max-width: 960px; margin: 0 auto; }
-.about img { width: clamp(200px, 24vw, 300px); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 30px 70px -30px rgba(13,37,27,0.35); }
-.about .text { display: grid; gap: 16px; }
+/* about: same photo, same crop and grid as the offer page's builder section */
+.about { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
+.about img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 18px; }
+.about .text { display: grid; gap: 18px; }
+.about .text h2 { margin-bottom: 4px; }
 .about .links { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 4px; }
 .about .links a { font-weight: 500; color: var(--ink); text-underline-offset: 4px; text-decoration-color: var(--line); padding: 4px 0; }
 .about .links a:hover { text-decoration-color: var(--ink); }
@@ -196,13 +192,16 @@ footer nav a { color: var(--ink); text-decoration: none; padding: 6px 0; }
 footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 @media (max-width: 860px) {
-  .grid { grid-template-columns: 1fr; }
-  .tile.wide { grid-template-columns: 1fr; padding: 14px 14px 28px; }
-  .tile.wide .body { margin-inline: clamp(10px, 1.6vw, 18px); padding-block: 0; }
+  .head, .ledger, .about, .pair { grid-template-columns: 1fr; }
+  .head { gap: 12px; }
+  .head .eyebrow { padding-top: 0; }
+  .ledger > * { grid-column: 1; }
+  .feature { grid-template-columns: 1fr; }
+  .feature img { max-width: 100%; }
+  .pair { gap: 36px; }
   .letters.one .letter { grid-template-columns: 1fr; }
   .letters.one .letter img { grid-row: auto; }
-  .about { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-  .about .links { justify-content: center; }
+  .about img { max-width: 260px; }
   footer .cols { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
@@ -236,11 +235,9 @@ footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
         <p class="eyebrow">Resources</p>
         <h2 id="res">Start with one of these.</h2>
       </div>
-      <div class="grid">
-        <article class="tile wide link">
-          <div class="panel am" aria-hidden="true">
-            <div class="lockup"><svg viewBox="0 0 74 40"><rect width="74" height="40" rx="20" fill="#0d251b"/><circle cx="54" cy="20" r="13" fill="#cda454"/></svg>Autonomous Mode</div>
-          </div>
+      <div class="ledger">
+        <article class="feature">
+          <img src="/assets/img/pipeline-still.webp" width="720" height="900" loading="lazy" alt="Autonomous Mode's morning pipeline: four people to move, with a follow-up to a new lead drafted and waiting for approval.">
           <div class="body">
             <p class="eyebrow">The install</p>
             <h3>Autonomous Mode</h3>
@@ -250,8 +247,8 @@ footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
           </div>
         </article>
 
-        <article class="tile link">
-          <div class="panel aa" aria-hidden="true"><p class="word">Autonomy <span>Architect</span></p></div>
+        <div class="pair">
+        <article class="item link">
           <p class="eyebrow">The letters</p>
           <h3>Autonomy Architect</h3>
           <p>One letter a week: what I built, tested, learned and decided.</p>
@@ -259,8 +256,7 @@ footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
 
-        <article class="tile">
-          <div class="panel kit" aria-hidden="true"><div class="sheet"><b>The 30-minute setup</b><i></i><i></i><i></i><i></i></div></div>
+        <article class="item">
           <p class="eyebrow">Free</p>
           <h3>The 30-minute setup</h3>
           <p>Three steps so your assistant knows your business, plus a first command: a morning brief from your inbox and calendar.</p>
@@ -270,16 +266,18 @@ footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
             <p class="fine status" role="status" aria-live="polite"></p>
           </form>
         </article>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="rule" aria-labelledby="let">
     <div class="wrap">
-      <div class="head">
+      <div class="head small">
         <p class="eyebrow">The letters</p>
         <h2 id="let">The latest from Autonomy Architect.</h2>
       </div>
+      <div class="ledger">
       <div class="letters one" id="letters">
         <article class="letter">
           <img src="https://substack-post-media.s3.amazonaws.com/public/images/4ca90ee1-72a7-4534-8d11-9b9a2899874f_1456x819.jpeg" width="1456" height="819" loading="lazy" alt="">
@@ -290,18 +288,17 @@ footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
       </div>
       <div class="all"><a class="arrow" href="/letters">Read all letters
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
     </div>
   </section>
 
   <section class="rule" aria-labelledby="who">
     <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">About me</p>
-        <h2 id="who">Who is Ato Sam?</h2>
-      </div>
       <div class="about">
         <img src="/assets/img/ato-sam.webp" width="720" height="720" loading="lazy" alt="Ato Sam, head-and-shoulders portrait in a navy shirt against a grey-green backdrop.">
         <div class="text">
+          <p class="eyebrow">About me</p>
+          <h2 id="who">Who is Ato Sam?</h2>
           <h3>Hey, I'm Ato.</h3>
           <p>I write Autonomy Architect and I build Autonomous Mode, a business development system for independent consultants, so nothing in their pipeline goes quiet.</p>
           <p>I run my business, my day job and my life on the same system: over 20 commands, a cold email pipeline, an evening review that catches my patterns, and guardrails that block the things I never want it to do. Autonomous Mode is that system, set up around a consultant's own work.</p>

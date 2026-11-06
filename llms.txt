@@ -17,7 +17,7 @@
 - Six parts: three pipeline commands, Practice Brain, Guardrails (drafts only), Voice Lock (every draft checked against the consultant's own writing), Weekly Review, Handover Kit. Includes Voice Note to Post.
 - Guarantee 1 (risk of starting): full refund of everything paid if the first command isn't running on the client's own inbox and calendar by day 7. Client's part: attend the intake call and give access on day 1.
 - Guarantee 2: once it is running, no follow-up on an open lead or proposal runs more than 2 working days late; if one does, work continues at no charge until it doesn't.
-- Price: $7,500 USD paid in full, or two payments of $4,000 (day 1 and day 14). The first 5 installs are free, in full, in exchange for a case study (two 30-minute calls); after that, $7,500. Optional care $1,500/month after day 74. Claude subscription billed separately by Anthropic.
+- Price: $7,500 USD paid in full, or two payments of $4,000 (day 1 and day 14), $8,000 in total. The first 5 installs are free, in full, in exchange for a case study (two 30-minute calls); after that, $7,500. Optional care $1,500/month after day 74. Claude subscription billed separately by Anthropic.
 
 ## Links
 - [Autonomous Mode](https://theatosam.com/autonomous-mode)
