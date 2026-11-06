@@ -12,25 +12,34 @@ module.exports = async function handler(req, res) {
     email: clean(body.email, 200).toLowerCase(),
     country: clean(body.country, 2).toUpperCase(),
     clients: clean(body.clients, 10),
-    hours: clean(body.hours, 10),
-    ai: clean(body.ai, 10),
+    situation: clean(body.situation, 10),
+    goal: clean(body.goal, 300),
+    blocker: clean(body.blocker, 10),
+    trying: clean(body.trying, 10),
+    priceFair: clean(body.price_fair, 40),
+    priceLow: clean(body.price_low, 40),
+    priceHigh: clean(body.price_high, 40),
     site: clean(body.site, 300),
-    why: clean(body.why, 500),
     consent: body.consent === "yes",
   };
   const complete =
-    a.name && validEmail(a.email) && /^[A-Z]{2}$/.test(a.country) &&
-    a.clients in POINTS.clients && a.hours in POINTS.hours && a.ai in POINTS.ai;
+    a.name && validEmail(a.email) && /^[A-Z]{2}$/.test(a.country) && a.goal &&
+    a.clients in POINTS.clients && a.situation in POINTS.situation &&
+    a.blocker in POINTS.blocker && a.trying in POINTS.trying;
   if (!complete) return res.status(400).json({ ok: false, error: "missing fields" });
 
   const qualified = a.consent && TARGET_COUNTRIES.includes(a.country);
   const fields = {
     "Country": a.country,
     "Active clients": a.clients,
-    "Admin hours": a.hours,
-    "Paid AI": a.ai,
+    "Situation": a.situation,
+    "90-day goal": a.goal,
+    "Blocker": a.blocker,
+    "Trying now": a.trying,
+    "Price fair": a.priceFair,
+    "Price too low": a.priceLow,
+    "Price too high": a.priceHigh,
     "Website": a.site,
-    "Why now": a.why,
     "Score": qualified ? score(a) : 0,
     "Applied": new Date().toISOString().slice(0, 10),
   };

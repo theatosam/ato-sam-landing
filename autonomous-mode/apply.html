@@ -238,6 +238,11 @@ footer a { color: var(--muted); }
 .pills span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--ink); cursor: pointer; font-size: 0.95rem; }
 .pills input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .pills input:focus-visible + span { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+.pills.stack { flex-direction: column; }
+.pills.stack label { width: 100%; }
+.pills.stack span { width: 100%; border-radius: 14px; padding: 10px 18px; line-height: 1.35; }
+.prices { display: grid; gap: 14px; }
+.prices small { color: var(--text); font-size: 0.95rem; }
 .consent { display: grid; grid-template-columns: 22px 1fr; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); font-size: 0.95rem; color: var(--text); }
 .consent input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--ink); }
 button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 500; }
@@ -286,14 +291,25 @@ button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 500; }
       <fieldset class="field"><legend>How many active clients do you have right now?</legend>
         <div class="pills"><label><input type="radio" name="clients" value="0" required><span>0</span></label><label><input type="radio" name="clients" value="1-2"><span>1-2</span></label><label><input type="radio" name="clients" value="3-5"><span>3-5</span></label><label><input type="radio" name="clients" value="6+"><span>6 or more</span></label></div></fieldset>
 
-      <fieldset class="field"><legend>Roughly how many hours a week go on writing and admin? <small>Proposals, client updates, email.</small></legend>
-        <div class="pills"><label><input type="radio" name="hours" value="under-3" required><span>Under 3</span></label><label><input type="radio" name="hours" value="3-5"><span>3-5</span></label><label><input type="radio" name="hours" value="6-10"><span>6-10</span></label><label><input type="radio" name="hours" value="10+"><span>More than 10</span></label></div></fieldset>
+      <fieldset class="field"><legend>Which sounds most like you right now?</legend>
+        <div class="pills stack"><label><input type="radio" name="situation" value="full" required><span>Booked solid, and business development has stopped</span></label><label><input type="radio" name="situation" value="thin"><span>One or two clients, and I need more</span></label><label><input type="radio" name="situation" value="gap"><span>A project ends soon and nothing is lined up</span></label><label><input type="radio" name="situation" value="between"><span>Between clients right now</span></label></div></fieldset>
 
-      <fieldset class="field"><legend>Which AI assistant do you pay for?</legend>
-        <div class="pills"><label><input type="radio" name="ai" value="none" required><span>None</span></label><label><input type="radio" name="ai" value="claude"><span>Claude</span></label><label><input type="radio" name="ai" value="chatgpt"><span>ChatGPT</span></label><label><input type="radio" name="ai" value="other"><span>Other</span></label></div></fieldset>
+      <label class="field"><span>Where do you want to be 90 days from now?</span><input type="text" name="goal" maxlength="300" placeholder="Example: two new retainers signed" required></label>
+
+      <fieldset class="field"><legend>What has got in the way so far?</legend>
+        <div class="pills stack"><label><input type="radio" name="blocker" value="time" required><span>Client work eats the time</span></label><label><input type="radio" name="blocker" value="who"><span>I'm not sure who to ask</span></label><label><input type="radio" name="blocker" value="selling"><span>Selling feels awkward</span></label><label><input type="radio" name="blocker" value="quiet"><span>Leads come in, then go quiet</span></label><label><input type="radio" name="blocker" value="other"><span>Something else</span></label></div></fieldset>
+
+      <fieldset class="field"><legend>What are you doing about it now, or thinking about?</legend>
+        <div class="pills stack"><label><input type="radio" name="trying" value="network" required><span>Asking my network for referrals</span></label><label><input type="radio" name="trying" value="linkedin"><span>Posting on LinkedIn</span></label><label><input type="radio" name="trying" value="agency"><span>An agency or assistant</span></label><label><input type="radio" name="trying" value="nothing"><span>Nothing yet</span></label></div></fieldset>
+
+      <fieldset class="field"><legend>After the first 5, this will be paid. Help me price it fairly. <small>(optional)</small></legend>
+        <div class="prices">
+          <label class="field"><small>What would feel like a fair price?</small><input type="text" name="price_fair" maxlength="40" placeholder="$"></label>
+          <label class="field"><small>What price would be so low you'd doubt it works?</small><input type="text" name="price_low" maxlength="40" placeholder="$"></label>
+          <label class="field"><small>What price would be too much, even if it worked?</small><input type="text" name="price_high" maxlength="40" placeholder="$"></label>
+        </div></fieldset>
 
       <label class="field"><span>Your website or LinkedIn <small>(optional)</small></span><input type="text" name="site" inputmode="url" maxlength="300" placeholder="https://"></label>
-      <label class="field"><span>Why now? <small>One line is enough.</small></span><input type="text" name="why" maxlength="500"></label>
       <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
 
       <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I'll do two 30-minute video calls: one before the install, one a month in. Both are recorded. If the install keeps my pipeline moving, Ato can use short clips and quotes from the second call, with my name, to show the results. I see every clip before it's used.</span></label>

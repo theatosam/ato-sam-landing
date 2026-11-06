@@ -15,15 +15,21 @@ const TAGS = {
 };
 
 // Custom field labels, in the order Ato reads them in Kit.
-const FIELDS = ["Country", "Active clients", "Admin hours", "Paid AI", "Website", "Why now", "Score", "Applied"];
+// v2 (2026-11-06): situational model (where now / where to / what's in the way / what else considered)
+// plus three open price answers. Old fields (Admin hours, Paid AI, Why now) stay in Kit for past applicants.
+const FIELDS = ["Country", "Active clients", "Situation", "90-day goal", "Blocker", "Trying now",
+  "Price fair", "Price too low", "Price too high", "Website", "Score", "Applied"];
 
 // Gate: where the outreach runs (context/current-priorities.md). Anyone else gets the kit and the list.
 const TARGET_COUNTRIES = ["US", "CA", "AU", "NZ", "GB", "IE"];
 
 const POINTS = {
   clients: { "0": 0, "1-2": 1, "3-5": 2, "6+": 3 },
-  hours: { "under-3": 0, "3-5": 1, "6-10": 2, "10+": 3 },
-  ai: { none: 0, chatgpt: 1, other: 1, claude: 2 },
+  // A project ending with nothing lined up is the sharpest pain (context/pain-research-2026-11-06.md).
+  situation: { full: 1, thin: 2, gap: 3, between: 2 },
+  // Leads going quiet is what the install fixes today.
+  blocker: { quiet: 3, time: 2, who: 1, selling: 1, other: 0 },
+  trying: { network: 0, linkedin: 0, agency: 0, nothing: 0 },
 };
 
 let tagIds = null;
@@ -89,9 +95,10 @@ function validEmail(e) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
 }
 
-// Auto score, max 9. "Why now" (0-2) is scored by hand, so the full scale is 11.
+// Auto score, max 10. "90-day goal" (0-2) is scored by hand, so the full scale is 12.
 function score(a) {
-  return (POINTS.clients[a.clients] ?? 0) + (POINTS.hours[a.hours] ?? 0) + (POINTS.ai[a.ai] ?? 0) + (a.site ? 1 : 0);
+  return (POINTS.clients[a.clients] ?? 0) + (POINTS.situation[a.situation] ?? 0) +
+    (POINTS.blocker[a.blocker] ?? 0) + (a.site ? 1 : 0);
 }
 
 // Shared request guard: POST only, same site, honeypot. Returns the body, or null when already answered.
