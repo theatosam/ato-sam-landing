@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apply for a free install | Autonomous Mode</title>
-<meta name="description" content="Apply for one of 5 free Autonomous Mode installs for independent consultants. Normally $7,500. Two 30-minute calls in return. Takes about 3 minutes, and every applicant gets the starter kit by email.">
+<title>Book a free assessment | Autonomous Mode</title>
+<meta name="description" content="A free 30-minute pipeline assessment for independent consultants. You talk, I listen, and within 24 hours you get a one-page roadmap of where work is leaking. Yours to keep.">
 <link rel="canonical" href="https://theatosam.com/autonomous-mode/apply">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#f0ebdf">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Autonomous Mode">
-<meta property="og:title" content="No lead goes quiet again. Free for 5 consultants.">
-<meta property="og:description" content="Autonomous Mode is a $7,500 install. The first 5 are free, in return for two 30-minute calls and your story if it works.">
+<meta property="og:title" content="No lead goes quiet again. Start with a free assessment.">
+<meta property="og:description" content="30 minutes on a call, then a one-page roadmap of where your pipeline leaks and the three fixes in order. Free, and yours to keep.">
 <meta property="og:url" content="https://theatosam.com/autonomous-mode/apply">
 <meta property="og:image" content="https://theatosam.com/autonomous-mode/assets/img/og.png">
 <meta property="og:image:width" content="1200">
@@ -25,24 +25,23 @@
       "@type": "WebPage",
       "@id": "https://theatosam.com/autonomous-mode/apply#page",
       "url": "https://theatosam.com/autonomous-mode/apply",
-      "name": "Apply for a free Autonomous Mode install",
-      "description": "Application for one of the first 5 free Autonomous Mode installs for independent consultants. Takes about 3 minutes. Every applicant gets the starter kit by email.",
+      "name": "Book a free Autonomous Mode pipeline assessment",
+      "description": "Booking page for a free 30-minute pipeline assessment for independent consultants, ending with a one-page roadmap they keep. Visitors not ready to book can get the free starter kit by email.",
       "about": { "@id": "https://theatosam.com/autonomous-mode#service" },
       "isPartOf": { "@type": "WebSite", "name": "Ato Sam", "url": "https://theatosam.com" },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Autonomous Mode", "item": "https://theatosam.com/autonomous-mode" },
-          { "@type": "ListItem", "position": 2, "name": "Apply", "item": "https://theatosam.com/autonomous-mode/apply" }
+          { "@type": "ListItem", "position": 2, "name": "Book an assessment", "item": "https://theatosam.com/autonomous-mode/apply" }
         ]
       },
       "mainEntity": {
         "@type": "Offer",
-        "name": "Free Autonomous Mode install (first 5 consultants)",
+        "name": "Free 30-minute pipeline assessment",
         "price": "0",
         "priceCurrency": "USD",
-        "eligibleQuantity": { "@type": "QuantitativeValue", "value": 5 },
-        "description": "A full install, normally $7,500, free for the first 5 independent consultants. In return: a 30-minute intake call, a 30-minute review call a month in, and, if it keeps their pipeline moving, a case study with their name.",
+        "description": "A 30-minute call about where an independent consultant's pipeline stands, followed within 24 hours by a one-page roadmap: where work is leaking and the three fixes in order. Free whether or not they go on to an install.",
         "itemOffered": { "@id": "https://theatosam.com/autonomous-mode#service" },
         "url": "https://theatosam.com/autonomous-mode/apply"
       }
@@ -50,9 +49,9 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "What does a free Autonomous Mode install cost me?", "acceptedAnswer": { "@type": "Answer", "text": "No money. You give two 30-minute video calls, one before the install and one a month in. If the install keeps your pipeline moving, short clips and quotes from the second call can be used, with your name, and you see every clip first." } },
-        { "@type": "Question", "name": "How many free installs are there?", "acceptedAnswer": { "@type": "Answer", "text": "Five. That is what Ato Sam can set up well at one time. After the first 5, the install is $7,500." } },
-        { "@type": "Question", "name": "What happens after I apply?", "acceptedAnswer": { "@type": "Answer", "text": "The starter kit arrives by email straight away. Ato reviews applications and contacts the consultants picked for the 5 places." } }
+        { "@type": "Question", "name": "What does the Autonomous Mode assessment cost?", "acceptedAnswer": { "@type": "Answer", "text": "Nothing. The 30-minute assessment is free whether or not you go on to an install. You need nothing installed or connected for the call, and the one-page roadmap that follows is yours to keep." } },
+        { "@type": "Question", "name": "What do I get from the assessment?", "acceptedAnswer": { "@type": "Answer", "text": "Within 24 hours of the call, a one-page roadmap: where your pipeline is leaking (open leads, proposals out, past clients), the three fixes in order, and what would happen next if you want help with them." } },
+        { "@type": "Question", "name": "What happens after the call?", "acceptedAnswer": { "@type": "Answer", "text": "You get the roadmap. If Autonomous Mode fits, I explain the install: $7,500, with the first 5 installs free. If it doesn't fit, you keep the roadmap and that's the end of it." } }
       ]
     }
   ]
@@ -225,35 +224,38 @@ footer a { color: var(--muted); }
 .apply-copy { display: flex; flex-direction: column; gap: 22px; position: sticky; top: 32px; }
 .apply h1 { font-size: clamp(2.8rem, 6vw, 5.2rem); }
 .free { font-family: var(--serif); font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.1; color: var(--accent-text); }
-.form { gap: 24px; }
-.field { display: grid; gap: 8px; border: 0; }
-.field > span, .field legend { font-weight: 500; color: var(--ink); font-size: 1rem; }
-.field small { font-weight: 400; color: var(--muted); }
-.field legend { margin-bottom: 10px; }
-.field input, .field select, .kit-row input { font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; min-height: 48px; padding: 0 14px; width: 100%; }
-.field input:focus, .field select:focus, .kit-row input:focus { outline: 2px solid var(--accent-text); outline-offset: 1px; }
-.pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.pills label { position: relative; }
-.pills input { position: absolute; opacity: 0; inset: 0; }
-.pills span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--ink); cursor: pointer; font-size: 0.95rem; }
-.pills input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.pills input:focus-visible + span { outline: 2px solid var(--accent-text); outline-offset: 2px; }
-.pills.stack { flex-direction: column; }
-.pills.stack label { width: 100%; }
-.pills.stack span { width: 100%; border-radius: 14px; padding: 10px 18px; line-height: 1.35; }
-.prices { display: grid; gap: 14px; }
-.prices small { color: var(--text); font-size: 0.95rem; }
-.consent { display: grid; grid-template-columns: 22px 1fr; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); font-size: 0.95rem; color: var(--text); }
-.consent input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--ink); }
+.anchor { font-size: 0.98rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; }
+.anchor b { color: var(--ink); font-weight: 600; }
+/* booking card */
+.book { gap: 28px; }
+.book h2 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.1; }
+.flow { list-style: none; display: grid; }
+.flow li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid var(--line); }
+.flow li:last-child { border-bottom: 1px solid var(--line); }
+.flow span { font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--accent-text); line-height: 1.2; }
+.flow b { display: block; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+.flow p { color: var(--text); font-size: 0.98rem; }
+.book .btn { justify-content: center; width: 100%; min-height: 58px; font-size: 1.05rem; }
+/* kit: the second door, quieter than the first */
 button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 500; }
-.kit-form { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 32px; }
-.kit-form .kit-row { max-width: 520px; }
-.kit-title { font-weight: 500; color: var(--muted); }
-.kit-row { display: flex; gap: 10px; }
+.kit { padding-bottom: clamp(24px, 4vw, 48px); }
+.kit-form { display: grid; grid-template-columns: 0.32fr 0.68fr; gap: 12px clamp(24px, 4vw, 64px); border-top: 1px solid var(--line); padding-top: clamp(32px, 5vw, 56px); }
+.kit-form > :not(.kit-label) { grid-column: 2; }
+.kit-label { grid-row: span 4; padding-top: 6px; }
+.kit-form h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.1; }
+.kit-form p.kit-what { color: var(--text); }
+.kit-row { display: flex; gap: 10px; max-width: 520px; }
+.kit-row input { font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; min-height: 48px; padding: 0 14px; width: 100%; }
+.kit-row input:focus { outline: 2px solid var(--accent-text); outline-offset: 1px; }
 .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); white-space: nowrap; min-height: 48px; }
+.btn.ghost:hover { background: var(--surface); }
+.kit-row .btn { justify-content: center; }
 @media (max-width: 860px) {
   .apply-grid { grid-template-columns: 1fr; }
   .apply-copy { position: static; }
+  .kit-form { grid-template-columns: 1fr; }
+  .kit-form > :not(.kit-label) { grid-column: 1; }
+  .kit-label { grid-row: auto; }
   .kit-row { flex-direction: column; }
 }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -277,53 +279,30 @@ button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 500; }
     <div class="apply-copy">
       <p class="eyebrow">For independent consultants</p>
       <h1>No lead goes quiet <em>again.</em></h1>
-      <p class="free">Free for 5 consultants.</p>
-      <p class="lede">Autonomous Mode does the business development that slips when client work gets busy: follow-ups drafted every morning, proposals chased to a yes or no, and the referral ask when a project lands well. It's a $7,500 install. I'm setting up the first 5 free, because 5 is what I can do well right now. In return: two 30-minute calls, and your story if it works.</p>
-      <p class="note"><i></i>About 3 minutes to apply. Everyone who applies gets the starter kit by email straight away.</p>
+      <p class="free">Start with a free 30-minute assessment.</p>
+      <p class="lede">You tell me where your pipeline stands: open leads, proposals out, past clients. Within 24 hours you get a one-page roadmap of where work is leaking and the three fixes in order. It's yours to keep, whether or not we work together.</p>
+      <p class="anchor">If it fits, the next step is Autonomous Mode: a <b>$7,500 install</b>. I'm setting up the <b>first 5 free</b>, because 5 is what I can do well right now.</p>
     </div>
 
-    <form class="card form" id="apply" action="/api/apply" method="post">
-      <label class="field"><span>Your name</span><input type="text" name="name" autocomplete="name" maxlength="120" required></label>
-      <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" maxlength="200" required></label>
-      <label class="field"><span>Where are you based?</span>
-        <select name="country" autocomplete="country" required><option value="">Choose your country</option></select></label>
-
-      <fieldset class="field"><legend>How many active clients do you have right now?</legend>
-        <div class="pills"><label><input type="radio" name="clients" value="0" required><span>0</span></label><label><input type="radio" name="clients" value="1-2"><span>1-2</span></label><label><input type="radio" name="clients" value="3-5"><span>3-5</span></label><label><input type="radio" name="clients" value="6+"><span>6 or more</span></label></div></fieldset>
-
-      <fieldset class="field"><legend>Which sounds most like you right now?</legend>
-        <div class="pills stack"><label><input type="radio" name="situation" value="full" required><span>Booked solid, and business development has stopped</span></label><label><input type="radio" name="situation" value="thin"><span>One or two clients, and I need more</span></label><label><input type="radio" name="situation" value="gap"><span>A project ends soon and nothing is lined up</span></label><label><input type="radio" name="situation" value="between"><span>Between clients right now</span></label></div></fieldset>
-
-      <label class="field"><span>Where do you want to be 90 days from now?</span><input type="text" name="goal" maxlength="300" placeholder="Example: two new retainers signed" required></label>
-
-      <fieldset class="field"><legend>What has got in the way so far?</legend>
-        <div class="pills stack"><label><input type="radio" name="blocker" value="time" required><span>Client work eats the time</span></label><label><input type="radio" name="blocker" value="who"><span>I'm not sure who to ask</span></label><label><input type="radio" name="blocker" value="selling"><span>Selling feels awkward</span></label><label><input type="radio" name="blocker" value="quiet"><span>Leads come in, then go quiet</span></label><label><input type="radio" name="blocker" value="other"><span>Something else</span></label></div></fieldset>
-
-      <fieldset class="field"><legend>What are you doing about it now, or thinking about?</legend>
-        <div class="pills stack"><label><input type="radio" name="trying" value="network" required><span>Asking my network for referrals</span></label><label><input type="radio" name="trying" value="linkedin"><span>Posting on LinkedIn</span></label><label><input type="radio" name="trying" value="agency"><span>An agency or assistant</span></label><label><input type="radio" name="trying" value="nothing"><span>Nothing yet</span></label></div></fieldset>
-
-      <fieldset class="field"><legend>After the first 5, this will be paid. Help me price it fairly. <small>(optional)</small></legend>
-        <div class="prices">
-          <label class="field"><small>What would feel like a fair price?</small><input type="text" name="price_fair" maxlength="40" placeholder="$"></label>
-          <label class="field"><small>What price would be so low you'd doubt it works?</small><input type="text" name="price_low" maxlength="40" placeholder="$"></label>
-          <label class="field"><small>What price would be too much, even if it worked?</small><input type="text" name="price_high" maxlength="40" placeholder="$"></label>
-        </div></fieldset>
-
-      <label class="field"><span>Your website or LinkedIn <small>(optional)</small></span><input type="text" name="site" inputmode="url" maxlength="300" placeholder="https://"></label>
-      <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-
-      <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I'll do two 30-minute video calls: one before the install, one a month in. Both are recorded. If the install keeps my pipeline moving, Ato can use short clips and quotes from the second call, with my name, to show the results. I see every clip before it's used.</span></label>
-
-      <div><button class="btn" type="submit">Apply for a free install
-        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
-      <p class="fine status" role="status" aria-live="polite"></p>
-    </form>
+    <div class="card book">
+      <h2>How the assessment works</h2>
+      <ol class="flow">
+        <li><span>1</span><div><b>Pick a time.</b><p>Your name, your email and one quick multiple-choice question. About a minute.</p></div></li>
+        <li><span>2</span><div><b>We talk for 30 minutes.</b><p>I ask, you answer. Nothing to prepare, install or connect.</p></div></li>
+        <li><span>3</span><div><b>Your roadmap arrives.</b><p>One page, within 24 hours, written for your practice.</p></div></li>
+      </ol>
+      <a class="btn" href="https://calendly.com/theatosam/strategy-call" target="_blank" rel="noopener">Book a free assessment
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="fine">Free either way. No pitch unless you ask for one.</p>
+    </div>
   </div>
 
-  <div class="wrap kit">
-    <form class="kit-form" id="kit" action="/api/kit" method="post">
-      <p class="kit-title">Just want the starter kit?</p>
-      <div class="kit-row"><input type="email" name="email" autocomplete="email" maxlength="200" placeholder="Email" aria-label="Email" required><button class="btn ghost" type="submit">Send me the kit</button></div>
+  <div class="wrap kit" id="kit">
+    <form class="kit-form" action="/api/kit" method="post">
+      <p class="eyebrow kit-label">Not ready to book?</p>
+      <h2>Get the free starter kit.</h2>
+      <p class="kit-what">The 30-Minute AI Setup for Consultants: a one-page context file so every chat starts with your business already loaded, a five-question test to see the difference, and a "morning" command that reads your inbox and calendar. In Claude.ai, no code.</p>
+      <div class="kit-row"><input type="email" name="email" autocomplete="email" maxlength="200" placeholder="Your email" aria-label="Email" required><button class="btn ghost" type="submit">Send me the kit</button></div>
       <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
       <p class="fine status" role="status" aria-live="polite"></p>
     </form>
@@ -331,38 +310,26 @@ button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 500; }
 </main>
 <script>
 (function () {
-  // Full country list from the browser's own names; the gate runs server-side.
-  var codes = "AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI CV KH CM CA CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HK HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT PR QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW".split(" ");
-  var sel = document.querySelector('select[name="country"]');
-  var names;
-  try { names = new Intl.DisplayNames(["en"], { type: "region" }); } catch (e) { names = { of: function (c) { return c; } }; }
-  codes.map(function (c) { return [c, names.of(c)]; })
-    .sort(function (a, b) { return a[1].localeCompare(b[1]); })
-    .forEach(function (p) { var o = document.createElement("option"); o.value = p[0]; o.textContent = p[1]; sel.appendChild(o); });
-
-  function wire(form, done) {
-    var status = form.querySelector(".status");
-    var button = form.querySelector("button");
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      button.disabled = true;
-      status.textContent = "Sending...";
-      fetch(form.action, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(form)))
-      }).then(function (r) {
-        if (!r.ok) throw new Error(r.status);
-        form.reset();
-        status.textContent = done;
-      }).catch(function () {
-        button.disabled = false;
-        status.textContent = "That didn't go through. Please try again in a minute.";
-      });
+  var form = document.querySelector(".kit-form");
+  var status = form.querySelector(".status");
+  var button = form.querySelector("button");
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    button.disabled = true;
+    status.textContent = "Sending...";
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      form.reset();
+      status.textContent = "Done. Check your inbox and click confirm to open the kit. Not there? Look in Promotions.";
+    }).catch(function () {
+      button.disabled = false;
+      status.textContent = "That didn't go through. Please try again in a minute.";
     });
-  }
-  wire(document.getElementById("apply"), "Thanks, your application is in. Check your inbox and click confirm to open the starter kit. Not there? Look in Promotions.");
-  wire(document.getElementById("kit"), "Done. Check your inbox and click confirm to open the kit. Not there? Look in Promotions.");
+  });
 })();
 </script>
 <footer>
