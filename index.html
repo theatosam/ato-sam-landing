@@ -251,17 +251,8 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
 .nav .bar .brand { padding-left: 8px; }
 .nav nav a.here { color: var(--text); }
 .eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.signup { display: flex; align-items: center; gap: 8px; width: min(100%, 470px); padding: 6px 6px 6px 22px; border-radius: 999px;
-  background: color-mix(in srgb, var(--surface) 70%, transparent); border: 1px solid var(--line-strong);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 34px -20px rgba(0, 0, 0, 0.7); }
-.signup input { flex: 1 1 auto; min-width: 0; height: 46px; border: 0; outline: 0; background: transparent; color: var(--text); font: inherit; font-size: 1rem; }
-.signup input::placeholder { color: var(--muted); opacity: 0.85; }
-.signup:focus-within { border-color: var(--accent); }
-.signup .btn { min-height: 46px; padding: 0 20px; flex: 0 0 auto; }
-.signup-embed { width: min(100%, 480px); height: 112px; overflow: hidden; border-radius: 16px; background: #fff; border: 1px solid var(--line-strong); }
-.signup-embed iframe { display: block; width: 100%; height: 320px; border: 0; margin-top: -178px; }
-@media (max-width: 400px) { .signup-embed iframe { margin-top: -194px; } }
-.hero.center .signup-embed, .footcta .signup-embed { margin-inline: auto; }
+.letter-cta { display: flex; }
+.hero.center .letter-cta, .footcta .letter-cta { justify-content: center; }
 .fine { font-size: 0.86rem; color: var(--muted); }
 .letters-stage { position: relative; z-index: 2; height: clamp(360px, 54vh, 500px); }
 .letters-stage::before { content: ""; position: absolute; left: 14%; right: 0; bottom: 2%; height: 60px; border-radius: 50%; background: rgba(0, 0, 0, 0.5); filter: blur(32px); }
@@ -356,7 +347,6 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
   .lcard.l1 { right: auto; left: var(--gutter); top: 4%; }
   .lcard.l2 { right: auto; left: calc(var(--gutter) + 18px); top: 52%; }
   .lcard.l3 { display: none; }
-  .signup { width: 100%; }
   .doors { grid-template-columns: 1fr; }
   .door, .door + .door { padding: 24px 0; border-left: 0; }
   .door.wide { grid-template-columns: 1fr; gap: 12px; }
@@ -380,7 +370,6 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
 .hero.center h1 span { white-space: normal; display: inline; }
 .hero.center h1 { max-width: 15ch; text-wrap: balance; font-size: clamp(2.5rem, 5vw, 4.2rem); }
 .hero.center .lede { max-width: 58ch; }
-.hero.center .signup { margin-inline: auto; }
 .eyebrow.wide { letter-spacing: 0.32em; }
 .res { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.4vw, 48px); }
 .panel { display: grid; gap: 14px; align-content: start; }
@@ -468,7 +457,7 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
       <div class="eyebrow wide">Ato Sam</div>
       <h1>Build a business that follows up with every lead.</h1>
       <p class="lede">Every Sunday I send one letter on what I built, tested and decided that week. For independent consultants and small business owners.</p>
-      <div class="signup-embed"><iframe src="https://theatosam.substack.com/embed" title="Subscribe to the weekly letter" width="480" height="320" frameborder="0" scrolling="no"></iframe></div>
+      <div class="letter-cta"><a class="btn primary" href="/letters" target="_blank" rel="noopener">Get the weekly letter on Substack <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       <p class="fine">Free. One email a week.</p>
     </div>
   </main>
@@ -554,7 +543,7 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
     <section class="section">
       <div class="footcta">
         <h2>Get the letter on Sunday.</h2>
-        <div class="signup-embed"><iframe src="https://theatosam.substack.com/embed" title="Subscribe to the weekly letter" width="480" height="320" loading="lazy" frameborder="0" scrolling="no"></iframe></div>
+        <div class="letter-cta"><a class="btn primary" href="/letters" target="_blank" rel="noopener">Get the weekly letter on Substack <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
     </section>
 
