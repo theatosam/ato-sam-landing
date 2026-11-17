@@ -258,6 +258,10 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
 .signup input::placeholder { color: var(--muted); opacity: 0.85; }
 .signup:focus-within { border-color: var(--accent); }
 .signup .btn { min-height: 46px; padding: 0 20px; flex: 0 0 auto; }
+.signup-embed { width: min(100%, 480px); height: 112px; overflow: hidden; border-radius: 16px; background: #fff; border: 1px solid var(--line-strong); }
+.signup-embed iframe { display: block; width: 100%; height: 320px; border: 0; margin-top: -178px; }
+@media (max-width: 400px) { .signup-embed iframe { margin-top: -194px; } }
+.hero.center .signup-embed, .footcta .signup-embed { margin-inline: auto; }
 .fine { font-size: 0.86rem; color: var(--muted); }
 .letters-stage { position: relative; z-index: 2; height: clamp(360px, 54vh, 500px); }
 .letters-stage::before { content: ""; position: absolute; left: 14%; right: 0; bottom: 2%; height: 60px; border-radius: 50%; background: rgba(0, 0, 0, 0.5); filter: blur(32px); }
@@ -464,10 +468,7 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
       <div class="eyebrow wide">Ato Sam</div>
       <h1>Build a business that follows up with every lead.</h1>
       <p class="lede">Every Sunday I send one letter on what I built, tested and decided that week. For independent consultants and small business owners.</p>
-      <form class="signup" action="https://theatosam.substack.com/subscribe" method="get">
-        <input type="email" name="email" placeholder="Your email" autocomplete="email" aria-label="Your email" required>
-        <button class="btn primary" type="submit">Get the weekly letter</button>
-      </form>
+      <div class="signup-embed"><iframe src="https://theatosam.substack.com/embed" title="Subscribe to the weekly letter" width="480" height="320" frameborder="0" scrolling="no"></iframe></div>
       <p class="fine">Free. One email a week.</p>
     </div>
   </main>
@@ -553,10 +554,7 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
     <section class="section">
       <div class="footcta">
         <h2>Get the letter on Sunday.</h2>
-        <form class="signup" action="https://theatosam.substack.com/subscribe" method="get">
-          <input type="email" name="email" placeholder="Your email" autocomplete="email" aria-label="Your email" required>
-          <button class="btn primary" type="submit">Get the weekly letter</button>
-        </form>
+        <div class="signup-embed"><iframe src="https://theatosam.substack.com/embed" title="Subscribe to the weekly letter" width="480" height="320" loading="lazy" frameborder="0" scrolling="no"></iframe></div>
       </div>
     </section>
 
