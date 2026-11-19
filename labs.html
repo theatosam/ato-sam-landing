@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Websites and Google profiles for small businesses | Autonomy Labs</title>
-<meta name="description" content="See your new website before you pay for it. Websites and Google profiles for small businesses in Ghana, with a free preview first and one flat price agreed upfront.">
+<meta name="description" content="See your new website before you pay for it. Websites for small businesses in Ghana: GHS 6,500 once, with a free preview first, Google listing, WhatsApp Business and a review kit included.">
 <link rel="canonical" href="https://theatosam.com/labs">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0c1a33">
@@ -49,6 +49,14 @@
       },
       "provider": {
         "@id": "https://theatosam.com/#ato"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Website package",
+        "price": "6500",
+        "priceCurrency": "GHS",
+        "url": "https://theatosam.com/labs#offer",
+        "description": "Up to 5 pages with the words written for you, Google listing tidied, WhatsApp Business set up, a review kit, web address in your name with year 1 paid. Free preview first; GHS 3,250 after the preview, GHS 3,250 on approval."
       }
     },
     {
@@ -452,21 +460,46 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
 .engine-price .pick { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line-strong); font-weight: 500; width: fit-content; margin-top: 6px; transition: background-color 160ms var(--ease); }
 .engine-price .pick:hover { background: rgba(255, 255, 255, 0.07); }
 @media (max-width: 900px) { .engine { grid-template-columns: 1fr; } }
-.tiers.two { grid-template-columns: 1fr 1fr; }
-.tier h3 { font-family: var(--serif); font-weight: 800; font-size: clamp(1.5rem, 2.4vw, 2rem); letter-spacing: -0.015em; line-height: 1.1; }
-.tier.first { padding-left: 0; }
-.work { display: grid; justify-items: center; gap: 18px; padding: clamp(28px, 4vw, 40px) 0; border-bottom: 1px solid var(--line); text-align: center; }
-.work .names { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; list-style: none; }
-.work .names li { font-family: var(--serif); font-weight: 800; font-size: clamp(1.1rem, 1.7vw, 1.4rem); letter-spacing: -0.01em; line-height: 1.2; color: color-mix(in srgb, var(--text) 88%, var(--muted)); padding: 4px clamp(18px, 3vw, 40px); }
-.work .names li + li { border-left: 1px solid var(--line-strong); }
-.work .names a { transition: color 160ms var(--ease); }
-.work .names a:hover { color: var(--accent); }
-.work .names small { display: block; font-family: var(--sans); font-weight: 400; font-size: 0.8rem; letter-spacing: 0; color: var(--muted); margin-top: 4px; }
+.cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.6vw, 36px); }
+.case { display: grid; gap: 14px; align-content: start; }
+.case .frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--line-strong); background: var(--surface);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 30px 60px -30px rgba(0,0,0,0.75); transition: transform 240ms var(--ease); }
+.case .frame .chrome { display: flex; gap: 6px; align-items: center; height: 24px; padding: 0 10px; background: color-mix(in srgb, var(--surface) 88%, #000); border-bottom: 1px solid var(--line); }
+.case .frame .chrome b { width: 7px; height: 7px; border-radius: 50%; background: var(--line-strong); }
+.case .frame img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top left; }
+a.case:hover .frame { transform: translateY(-3px); }
+.case h3 { font-family: var(--serif); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.012em; line-height: 1.15; }
+.case p { color: var(--muted); font-size: 0.92rem; margin-top: -8px; }
+.offer { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; border-top: 1px solid var(--line-strong); padding-top: clamp(28px, 3.4vw, 44px); }
+.stack { list-style: none; display: grid; gap: 0; }
+.stack li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); color: color-mix(in srgb, var(--text) 86%, var(--muted)); line-height: 1.45; text-wrap: pretty; }
+.stack li::before { content: ""; width: 12px; height: 7px; margin-top: 0.45em; border-left: 1.6px solid var(--accent); border-bottom: 1.6px solid var(--accent); transform: rotate(-45deg); }
+.stack li b { font-weight: 500; color: var(--text); }
+.pricebox { position: sticky; top: 24px; display: grid; gap: 16px; padding: clamp(24px, 3vw, 36px); border-radius: 18px; border: 1px solid var(--line-strong);
+  background: radial-gradient(90% 70% at 20% 0%, rgba(209, 169, 87, 0.12), transparent 70%), linear-gradient(180deg, color-mix(in srgb, var(--surface) 90%, transparent), color-mix(in srgb, var(--surface) 55%, transparent));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 40px 80px -40px rgba(0,0,0,0.8); }
+.pricebox .name { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.pricebox .price { font-family: var(--serif); font-weight: 800; letter-spacing: -0.02em; line-height: 1; font-size: clamp(2.8rem, 4.6vw, 4rem); font-variant-numeric: tabular-nums; }
+.pricebox .price small { font-family: var(--sans); font-weight: 400; font-size: 1rem; letter-spacing: 0; color: var(--muted); margin-left: 8px; }
+.pricebox .split { display: grid; gap: 8px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.pricebox .split div { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); }
+.pricebox .split div span:last-child { color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pricebox .free { font-size: 0.95rem; color: var(--text); padding-left: 14px; border-left: 1px solid var(--accent); text-wrap: pretty; }
+.pricebox .btn { justify-content: center; }
+.pricebox .fine { text-align: center; }
+.guar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(36px, 4.6vw, 56px); border-top: 1px solid var(--line-strong); }
+.guar div { display: grid; gap: 8px; align-content: start; padding: 24px 24px 8px 0; }
+.guar div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+.guar .k { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.guar h3 { font-family: var(--serif); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.012em; line-height: 1.15; text-wrap: balance; }
+.guar p { color: var(--muted); font-size: 0.94rem; text-wrap: pretty; }
 @media (max-width: 900px) {
-  .tiers.two { grid-template-columns: 1fr; }
-  .tier.first { border-top: 0; }
-  .work .names { flex-direction: column; gap: 14px; }
-  .work .names li, .work .names li + li { border-left: 0; padding: 0; }
+  .cases { grid-template-columns: 1fr; gap: 32px; }
+  .offer { grid-template-columns: 1fr; }
+  .pricebox { position: static; }
+  .guar { grid-template-columns: 1fr; }
+  .guar div, .guar div + div { padding: 20px 0 6px; border-left: 0; border-top: 1px solid var(--line); }
+  .guar div:first-child { border-top: 0; }
 }
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -488,7 +521,7 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
       <p class="lede">Websites and Google profiles for small businesses in Ghana. I build a preview first, and you pay once you&rsquo;ve seen it.</p>
       <div class="cta">
         <a class="btn primary" href="https://wa.me/233245347032?text=Hello%20Ato%2C%20I%27d%20like%20a%20free%20website%20preview%20for%20my%20business.%20Business%20name%3A%20" target="_blank" rel="noopener">WhatsApp me for a free preview <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn glass" href="#what">What you get</a>
+        <a class="btn glass" href="#offer">See the price</a>
       </div>
       <figure class="quote"><blockquote>&ldquo;I change my own site from my phone now. New trip, new photos, done. I don&rsquo;t wait on anyone.&rdquo;</blockquote><figcaption>Roxanne Koffi, Rox Consult</figcaption></figure>
     </div>
@@ -504,41 +537,53 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
 
 <div class="rest">
   <div class="wrap">
-    <div class="work">
-      <div class="eyebrow wide">Recent work</div>
-      <ul class="names">
-        <li>Rox Consult<small>Travel packages, Ghana</small></li>
-        <li><a href="https://www.feedingforchrist.org" target="_blank" rel="noopener">Feeding for Christ Missions</a><small>Charity, Accra</small></li>
-        <li><a href="https://ncce-aan.vercel.app" target="_blank" rel="noopener">NCCE Asante Akim North</a><small>Public report site</small></li>
-      </ul>
-    </div>
+    <section class="section" id="work" style="padding-top: clamp(32px, 5vw, 56px);">
+      <div class="head"><div class="eyebrow wide">Recent work</div><h2>Sites I&rsquo;ve built</h2></div>
+      <div class="cases">
+        <div class="case">
+          <div class="frame"><div class="chrome"><b></b><b></b><b></b></div><img src="/assets/img/work-rox-desk.webp" srcset="/assets/img/work-rox-desk-640.webp 640w, /assets/img/work-rox-desk.webp 1200w" sizes="(max-width: 900px) 90vw, 400px" width="1200" height="573" alt="Rox Consult home page" loading="lazy"></div>
+          <h3>Rox Consult</h3><p>Travel packages, Ghana</p>
+        </div>
+        <a class="case" href="https://www.feedingforchrist.org" target="_blank" rel="noopener">
+          <div class="frame"><div class="chrome"><b></b><b></b><b></b></div><img src="/assets/img/work-ffc.webp" srcset="/assets/img/work-ffc-640.webp 640w, /assets/img/work-ffc.webp 1200w" sizes="(max-width: 900px) 90vw, 400px" width="1200" height="750" alt="Feeding for Christ Missions home page" loading="lazy"></div>
+          <h3>Feeding for Christ Missions</h3><p>Charity, Accra</p>
+        </a>
+        <a class="case" href="https://ncce-aan.vercel.app" target="_blank" rel="noopener">
+          <div class="frame"><div class="chrome"><b></b><b></b><b></b></div><img src="/assets/img/work-ncce.webp" srcset="/assets/img/work-ncce-640.webp 640w, /assets/img/work-ncce.webp 1200w" sizes="(max-width: 900px) 90vw, 400px" width="1200" height="750" alt="NCCE Asante Akim North public report site" loading="lazy"></div>
+          <h3>NCCE Asante Akim North</h3><p>Public report site</p>
+        </a>
+      </div>
+    </section>
 
-    <section class="section" id="what">
-      <div class="head"><h2>What you get</h2><p class="intro">Every website starts with a free preview. One flat price, agreed with you before I build it.</p></div>
-      <div class="tiers two">
-        <article class="tier first">
-          <div class="name">Website</div>
-          <h3>A site you see before you pay for it.</h3>
-          <p class="lead">Half after the preview, half when you approve.</p>
-          <ul>
-            <li>Up to 5 pages, with the words written for you</li>
-            <li>One tap to call or WhatsApp you</li>
-            <li>Your Google listing tidied</li>
-            <li>A kit to ask for reviews</li>
-            <li>Your web address for year 1, with free hosting</li>
-          </ul>
-          <a class="pick" href="https://wa.me/233245347032?text=Hello%20Ato%2C%20I%27d%20like%20a%20free%20website%20preview%20for%20my%20business.%20Business%20name%3A%20" target="_blank" rel="noopener">WhatsApp me for a free preview</a>
-        </article>
-        <article class="tier">
-          <div class="name">Google profile</div>
-          <h3>Be found on Google Maps.</h3>
-          <p class="lead">Your Google business profile, claimed, verified and put right.</p>
-          <ul>
-            <li>Profile claimed and verified</li>
-            <li>Phone number, opening hours and details checked and corrected</li>
-          </ul>
-          <a class="pick" href="https://wa.me/233245347032?text=Hello%20Ato%2C%20I%27d%20like%20help%20with%20my%20Google%20business%20profile.%20Business%20name%3A%20" target="_blank" rel="noopener">Ask about this</a>
-        </article>
+    <section class="section" id="offer">
+      <div class="head"><h2>Everything your business needs to be <em>found and reached</em></h2><p class="intro">One package. You see it before you pay a pesewa.</p></div>
+      <div class="offer">
+        <ul class="stack">
+          <li><span><b>A website of up to 5 pages</b>, with the words written for you</span></li>
+          <li><span><b>One tap to call or WhatsApp you</b> on every page</span></li>
+          <li><span><b>Your Google listing tidied</b>, so the right number and hours show on Maps</span></li>
+          <li><span><b>WhatsApp Business set up</b>, with greeting and away messages</span></li>
+          <li><span><b>A review kit:</b> a WhatsApp message and a QR poster for your front desk</span></li>
+          <li><span><b>Your tap count</b> at day 30 and day 90: how many people reached you from the site</span></li>
+          <li><span><b>Your web address in your name</b>, with free hosting and year 1 paid</span></li>
+          <li><span><b>Every file and the login</b>, handed to you when you approve the site</span></li>
+        </ul>
+        <aside class="pricebox">
+          <div class="name">Website package</div>
+          <div class="price">GHS 6,500<small>once</small></div>
+          <div class="split">
+            <div><span>After you&rsquo;ve seen your preview</span><span>GHS 3,250</span></div>
+            <div><span>When you approve the finished site</span><span>GHS 3,250</span></div>
+          </div>
+          <p class="free">The preview is free. Don&rsquo;t like it, and you owe nothing.</p>
+          <a class="btn primary" href="https://wa.me/233245347032?text=Hello%20Ato%2C%20I%27d%20like%20a%20free%20website%20preview%20for%20my%20business.%20Business%20name%3A%20" target="_blank" rel="noopener">WhatsApp me for a free preview <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="fine">MoMo or bank transfer.</p>
+        </aside>
+      </div>
+      <div class="guar">
+        <div><span class="k">On time</span><h3>Live in 10 working days, or GHS 500 off</h3><p>If the delay is mine, you take GHS 500 off the second payment.</p></div>
+        <div><span class="k">After launch</span><h3>30 days of fixes, free</h3><p>Anything I got wrong or broke, I fix at no charge.</p></div>
+        <div><span class="k">If it&rsquo;s quiet</span><h3>Low count at day 30? Another 30 days, free</h3><p>I go through the page and your Google listing and make fixes for another 30 days.</p></div>
       </div>
     </section>
 
@@ -546,9 +591,9 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
       <div class="head"><h2>How a preview becomes your site</h2></div>
       <div class="steps">
         <div class="step"><h3>See your preview</h3><p>A short call so I know what you do, then a first version of your site. Free.</p></div>
-        <div class="step"><h3>Pay half</h3><p>If you like it, half goes in and I build the real thing.</p></div>
+        <div class="step"><h3>Pay half</h3><p>If you like it, GHS 3,250 goes in and I build the real thing.</p></div>
         <div class="step"><h3>Approve it</h3><p>You check the finished site and tell me what to change.</p></div>
-        <div class="step"><h3>Pay the rest, go live</h3><p>You pay the other half when you&rsquo;re happy, and the site goes live.</p></div>
+        <div class="step"><h3>Pay the rest, go live</h3><p>You pay the other GHS 3,250 when you&rsquo;re happy, and the site goes live.</p></div>
       </div>
     </section>
 
