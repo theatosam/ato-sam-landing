@@ -437,6 +437,17 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
 .engine-price .pick { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line-strong); font-weight: 500; width: fit-content; margin-top: 6px; transition: background-color 160ms var(--ease); }
 .engine-price .pick:hover { background: rgba(255, 255, 255, 0.07); }
 @media (max-width: 900px) { .engine { grid-template-columns: 1fr; } }
+.work { display: grid; justify-items: center; gap: 18px; margin-top: clamp(36px, 5vw, 56px); padding-top: clamp(28px, 4vw, 40px); border-top: 1px solid var(--line); text-align: center; }
+.work .names { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; list-style: none; }
+.work .names li { font-family: var(--serif); font-weight: 800; font-size: clamp(1.1rem, 1.7vw, 1.4rem); letter-spacing: -0.01em; line-height: 1.2; color: color-mix(in srgb, var(--text) 88%, var(--muted)); padding: 4px clamp(18px, 3vw, 40px); }
+.work .names li + li { border-left: 1px solid var(--line-strong); }
+.work .names a { transition: color 160ms var(--ease); }
+.work .names a:hover { color: var(--accent); }
+.work .names small { display: block; font-family: var(--sans); font-weight: 400; font-size: 0.8rem; letter-spacing: 0; color: var(--muted); margin-top: 4px; }
+@media (max-width: 900px) {
+  .work .names { flex-direction: column; gap: 14px; }
+  .work .names li, .work .names li + li { border-left: 0; padding: 0; }
+}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -475,7 +486,7 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
           </div>
           <h3>See your new website before you pay for it.</h3>
           <p>I build a first version of your site, you look at it, and you pay once you like it.</p>
-          <a class="go" href="/labs">See websites and prices <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="go" href="/labs">See websites <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
         <!-- BEGIN FREE-PROFILE-CARD (swap: delete this block and uncomment the paid card below) -->
         <article class="panel">
@@ -497,6 +508,14 @@ h1 em { font-weight: 500; font-style: italic; color: var(--accent); letter-spaci
           <a class="go" href="mailto:ato@theatosam.com?subject=Google%20profile%20set-up">Message me about your profile <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
         -->
+      </div>
+      <div class="work">
+        <div class="eyebrow wide">Recent work</div>
+        <ul class="names">
+          <li>Rox Consult<small>Travel packages, Ghana</small></li>
+          <li><a href="https://www.feedingforchrist.org" target="_blank" rel="noopener">Feeding for Christ Missions</a><small>Charity, Accra</small></li>
+          <li><a href="https://ncce-aan.vercel.app" target="_blank" rel="noopener">NCCE Asante Akim North</a><small>Public report site</small></li>
+        </ul>
       </div>
     </section>
 
