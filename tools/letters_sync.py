@@ -14,6 +14,7 @@ letter's date, so a skipped week shows. Nothing here reads credentials or posts 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import io
 import re
@@ -97,11 +98,13 @@ def esc(s: str) -> str:
     return html.escape(s, quote=False).replace("'", "&rsquo;")
 
 
-def card(n: int, it: dict, has_cover: bool) -> str:
+def card(n: int, it: dict, version: str | None) -> str:
+    # version = short hash of the cover bytes. The site caches images for 7 days, and the
+    # file names are reused every week, so without ?v= browsers show last week's covers.
     d = it["date"]
     date = f"{d.day} {d.strftime('%B %Y')}"
-    cover = (f'\n          <div class="cover"><img src="/assets/img/letter-{n}.webp" width="{COVER_W}" height="{COVER_H}" alt="" loading="lazy"></div>'
-             if has_cover else "")
+    cover = (f'\n          <div class="cover"><img src="/assets/img/letter-{n}.webp?v={version}" width="{COVER_W}" height="{COVER_H}" alt="" loading="lazy"></div>'
+             if version else "")
     return (f'        <a class="post" href="{html.escape(it["link"], quote=True)}" target="_blank" rel="noopener">{cover}\n'
             f'          <h3>{esc(it["title"])}</h3>\n'
             f'          <p>{esc(it["line"])}</p>\n'
@@ -124,12 +127,13 @@ def main() -> int:
     img_dir = ROOT / "assets" / "img"
     cards = []
     for n, it in enumerate(items, 1):
-        ok = False
+        version = None
         if it["cover"]:
-            size = save_cover(it["cover"], img_dir / f"letter-{n}.webp")
+            dest = img_dir / f"letter-{n}.webp"
+            size = save_cover(it["cover"], dest)
+            version = hashlib.sha1(dest.read_bytes()).hexdigest()[:8]
             print(f"  cover {n}: {size / 1024:.1f} KB  {it['title'][:50]}")
-            ok = True
-        cards.append(card(n, it, ok))
+        cards.append(card(n, it, version))
     page = Path(a.page)
     t = page.read_text(encoding="utf-8")
     b = t.index(BEGIN)
